@@ -87,6 +87,7 @@ spring-test/test-output/
 .gradle
 argfile*
 pom.xml
+application.properties
 activemq-data/
 
 classes/
@@ -113,3 +114,4 @@ out
 test-output
 atlassian-ide-plugin.xml
 .gradletasknamecache
+
