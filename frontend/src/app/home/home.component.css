@@ -1,0 +1,117 @@
+body .home {
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*  ----------NAV TEMPORÁRIA----------  */
+.nav {
+    float: right;
+    list-style: none;
+    margin: 0.5rem 0.5rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    size: 90%;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: var(--color-accent);
+}
+
+/*  ----------MAIN CONTAINER----------  */
+.main-container {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*  ----------TEXT CONTAINER----------  */
+.text-container h1 {
+    white-space: nowrap;
+    font-size: 2.5rem;
+    color: var(--color-accent);
+}
+
+.text-container span {
+    color:#E9E9E9;
+    font-weight: 300;
+}
+
+
+/*  ----------BUTTONS----------  */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.landing-btn {
+    width: 100%;
+    border: 1px solid white;
+    color: #F9F9FA;
+    border-radius: 0.2rem;
+    transition: background-color 0.5s;
+}
+
+.landing-btn:hover {
+    background-color: var(--color-accent-focus);
+    border-color: var(--color-accent-focus);
+}
+
+
+/*  ----------IMG----------  */
+.img-container img {
+    width: 20rem;
+    padding: 2rem;
+}
+
+
+/*  ----------DESKTOP----------  */
+@media (min-width: 800px) {
+    .nav {
+        margin: 1rem 2rem;
+    }
+
+    .main-container {
+        margin: 0rem auto;
+        height: 90vh;
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .text-container h1 {
+        font-size: 4.5rem;
+        color: var(--color-accent);
+    }
+        
+    .img-container img {
+        width: 30rem;
+        padding-left: 5rem;
+    }
+
+    .buttons {
+        flex-direction: row;
+        margin-top: 4rem;
+    }
+
+    .landing-btn {
+        width: 48.5%;
+    }
+   
+}

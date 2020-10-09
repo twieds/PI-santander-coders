@@ -1,0 +1,56 @@
+<div id="container">
+    <h2> SEUS DADOS </h2>
+
+    <form action="">
+        <div class="input-block">
+            <label for="entity-name"> NOME DA ENTIDADE: </label>
+            <input name="entity-name" id="entity-name" required>
+
+        </div>
+        <div class="input-wrapper">
+            <div class="input-block">
+                <label for="">CNPJ/CPF:</label>
+                <input name="cnpj" id="cnpj" required>
+            </div>
+
+            <div class="input-block">
+                <label for="">SOU...</label>
+                <select name="type-of-entity" id="type-of-entity">
+                    <option value="1">ASSOCIAÇÃO SEM FINS LUCRATICOS</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-block">
+            <label for="about-you">NOS CONTE SUA HISTÓRIA:</label>
+            <textarea name="about-you" id="about-you" placeholder="Como tudo começou, o que você faz..."
+                required></textarea>
+        </div>
+
+        <div class="input-block">
+            <label for="how-can-we-help">COMO UM DEV PODE TE AJUDAR?</label>
+            <textarea name="how-can-we-help" id="how-can-we-help"
+                placeholder="O que você precisa? Como nossa ajuda vai melhorar o seu dia a dia?" required></textarea>
+        </div>
+
+        <div class="input-block">
+            <label for="social-media"> REDES SOCIAIS: </label>
+            <input type="url" name="social-media" id="social-media" placeholder="Instagram, Facebook, LinkedIn...">
+        </div>
+
+        <div class="input-block">
+            <label for="doc"> Documentação: </label>
+            <input name="doc" id="doc" placeholder="C:/cnpj.pdf">
+
+        </div>
+        <div class="input-block">
+            <label for="location"> Localizacão </label>
+            <input name="location" id="location" placeholder="Onde você atua?">
+        </div>
+    </form>
+
+    <div class="buttons-wrapper">
+        <button class="button button-primary">SALVAR</button>
+        <button class="button button-secondary">CANCELAR</button>
+    </div>
+</div>

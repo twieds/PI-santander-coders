@@ -1,0 +1,42 @@
+#option-text {
+    text-align: center;
+    margin: 1.5rem 0rem;
+}
+
+#sign-up {
+    font-size: 88%;
+    text-align: center;
+    width: 100%;
+    padding-top: 1rem;    
+}
+
+#sign-up a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+.buttons-wrapper {    
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1.5px solid #DADEED;
+}
+
+@media (min-width: 700px) {
+    #container {
+        width: fit-content;
+    }
+
+    .buttons-wrapper {
+        display: flex;        
+        white-space: nowrap;
+        justify-content: space-between;
+    }
+    
+    .buttons-wrapper .button {
+        width: 48.5%;
+        font-size: 90%;
+        font-weight: 300;
+        padding: 1.3rem;
+    }
+}
+

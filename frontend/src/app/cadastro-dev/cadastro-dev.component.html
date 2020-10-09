@@ -1,0 +1,98 @@
+<div id="container">
+    <h2>SEUS DADOS</h2>
+
+    <form action="" autocomplete="off">
+
+        <!-- INICIO DA AREA DE DADOS PESSOAIS  -->
+        <fieldset id="personal" class="fieldset-container">
+
+            <div class="input-wrapper">
+                
+                <div class="fields">
+                    <div class="input-block">
+                        <label for="fullname">NOME COMPLETO</label>
+                        <input name="fullname" id="fullname" required>
+                    </div>
+                    
+                    <div class="input-block">
+                        <label for="avatar">AVATAR</label>
+                        <input name="avatar" id="avatar">
+                    </div>
+                </div>
+
+                <img src="/assets/images/cadastros/avatar-picker.png" alt="avatar picker">
+            </div>
+
+            <div class="input-block">
+                <label for="biography">BIOGRAFIA</label>
+                <textarea name="biography" id="biography" placeholder="Nos conte um pouco sobre você..."></textarea>
+            </div>
+
+            <div class="input-block">
+                <label for="location">LOCALIZAÇÃO</label>
+                <input name="location" id="location" placeholder="Procure pela sua cidade">
+            </div>
+
+        </fieldset>
+        <!-- FIM DA AREA DE DADOS PESSOAIS  -->
+
+        <!-- INICIO DA AREA DE COMPETENCIAS  -->
+        <fieldset id="education" class="fieldset-container">
+            <h2> COMPETÊNCIAS </h2>
+
+            <div class="input-block">
+                <label for="practice">QUERO PRATICAR...</label>
+                <input name="practice" id="practice" placeholder="PESQUISAR COMPETÊNCIAS">
+            </div>
+
+            <!-- PLACEHOLDER ENQUANTO NÃO É FEITO A LOGICA NO JS -->
+            <div class="tags-wrapper">
+                <a class="tag tag-unselected">REACT</a>
+                <a class="tag tag-unselected">HTML</a>
+                <a class="tag tag-unselected">CSS</a>
+            </div>
+            
+
+            <div class="input-block">
+                <label for="skilled-at">SOU BOM EM...</label>
+                <input name="skilled-at" id="skilled-at" placeholder="PESQUISAR COMPETÊNCIAS">
+            </div>
+
+            <!-- PLACEHOLDER ENQUANTO NÃO É FEITO A LOGICA NO JS -->
+            <div class="tags-wrapper">
+                <a class="tag tag-unselected">DJANGO</a>
+                <a class="tag tag-unselected">PYTHON</a>
+                <a class="tag tag-unselected">JAVASCRIPT</a>
+            </div>
+        <!-- FIM DA AREA DE COMPETENCIAS  -->
+        </fieldset>
+
+        <!-- INICIO DA AREA DE HISTÓRICO ACADEMICO  -->
+        <fieldset id="education" class="fieldset-container">
+            <h2> HISTÓRICO ACADÊMICO </h2>
+
+            <div class="input-block">
+                <label for="title">TÍTULO</label>
+                <input name="title" id="title" placeholder="CURSO, GRADUAÇÃO, TÉCNICO...">
+            </div>
+
+            <div class="input-wrapper">
+                <div class="input-block">
+                    <label for="institution">INSTITUIÇÃO</label>
+                    <input name="institution" id="institution" placeholder="ESCOLA, UNIVERSIDADE...">
+                </div>
+
+                <div class="input-block">
+                    <label for="">DATA</label>
+                    <input name="project-deadline" id="project-deadline" placeholder="MES/ANO">
+                </div>
+            </div>
+        </fieldset>
+        <!-- FIM DA AREA DE HISTÓRICO ACADEMICO  -->
+    </form>
+
+    <div class="buttons-wrapper">
+        <a href="" class="button button-primary">SALVAR</a>
+        <a href="" class="button button-secondary">CANCELAR</a>
+    </div>
+</div>

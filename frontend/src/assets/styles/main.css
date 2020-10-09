@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+:root {
+    --color-background: #DADEED;
+    --color-primary: #87B6A6;
+    --color-primary-darker: #5a8688;
+    --color-accent: #C2EFE0;
+    --color-accent-focus: #80DDBE;;
+    --color-text-label: #696868;
+    --color-text: #848484;
+    --color-container-background: #FFFFFF;
+    font-size: 80%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-background);
+    width: 100%;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+body,
+input,
+button,
+textarea {
+    font-family: Poppins;
+    color: var(--color-text);
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--color-text-label);
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/*  BUTTONS  */
+.button {
+    width: 100%;
+    height: 2.8rem;
+    margin: 0.2rem 0;
+    padding: 0rem 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-decoration: none;
+    background: transparent;
+}
+
+.button-primary {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    transition: background 0.2s;
+}
+
+.button-primary:hover{
+    text-decoration: none;
+    background: var(--color-primary-darker);
+}
+
+.button-secondary {
+    border: solid 2px var(--color-primary);
+    color: var(--color-primary);
+    transition: background 0.2s;
+}
+
+.button-secondary:hover{
+    text-decoration: none;
+    border-color: var(--color-primary-darker);
+    color: var(--color-primary-darker);
+}
+
+/* TAGS */
+.tag {
+    font-size: 80%;
+    padding: 0.5rem 0.8rem;
+    margin: 0.2rem 0.5rem 0rem 0rem;
+    cursor: pointer;
+
+    border-radius: 3rem;
+    border: 2px solid var(--color-accent);
+}
+
+.tag-selected{
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.tag-selected:hover{
+    background-color: #fd7280;
+    border-color:  #fd7280;
+}
+
+
+/*  CONTAINER BRANCO QUE TODAS AS TELAS TEM */
+#container {
+    width: 95vw;
+    padding: 1rem 1.3rem;
+    max-width: 900px;
+    margin: 3.2rem auto;
+    background-color: var(--color-container-background);
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 700px) {
+    :root {
+        font-size: 100%;
+    }
+
+    #container {
+        width: 90vw;
+        padding: 2rem 3.5rem;
+    }
+}
