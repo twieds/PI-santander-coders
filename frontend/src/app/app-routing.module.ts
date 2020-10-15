@@ -6,8 +6,9 @@ import { HomeComponent } from './home/home.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DetalheDevComponent } from './detalhe-dev/detalhe-dev.component'
-import { DetalheProjetoComponent } from './detalhe-projeto/detalhe-projeto.component';
+import { ListaDevsComponent } from './lista-devs/lista-devs.component';
+import { ListaProjetosComponent } from './lista-projetos/lista-projetos.component';
+import { HeaderFiltroComponent } from './header-filtro/header-filtro.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,8 +17,9 @@ const routes: Routes = [
   { path: 'cadastro-entidade', component: CadastroEntidadeComponent },
   { path: 'cadastro-dev', component: CadastroDevComponent },
   { path: 'cadastro-projeto', component: CadastroProjetoComponent },
-  { path: 'detalhe-dev', component: DetalheDevComponent },
-  { path: 'detalhe-projeto', component: DetalheProjetoComponent },
+  { path: 'lista-devs', component: ListaDevsComponent },
+  { path: 'lista-projetos', component: ListaProjetosComponent },
+  { path: 'header-filtro',component: HeaderFiltroComponent},
   {path: '', pathMatch: 'full', redirectTo:'/home'}
 ];
 

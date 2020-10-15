@@ -1,0 +1,41 @@
+#filters {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;    
+    background-color: var(--color-primary); 
+}
+
+#filters .input-block label {
+    color: #f2f2f2;
+}
+
+#button-filter {
+    background: #679a9d ;
+    color:#f2f2f2;
+    transition: background 0.2s;
+    margin-bottom:1.2rem;
+}
+
+#button-filter:hover{
+    text-decoration: none;
+    background: var(--color-primary-darker);
+}
+
+
+@media (min-width: 700px) {
+    #filters {
+        height: 18rem;
+    }
+
+    #search-devs {
+        width: 90vw;
+        max-width: 1200px;
+        padding: 1rem 3.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        align-items: flex-end;
+    }
+}

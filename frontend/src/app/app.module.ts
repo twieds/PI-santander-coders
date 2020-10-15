@@ -12,6 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { DetalheEntidadeComponent } from './detalhe-entidade/detalhe-entidade.component';
 import { DetalheDevComponent } from './detalhe-dev/detalhe-dev.component';
 import { DetalheProjetoComponent } from './detalhe-projeto/detalhe-projeto.component';
+import { ListaDevsComponent } from './lista-devs/lista-devs.component';
+import { ListaProjetosComponent } from './lista-projetos/lista-projetos.component';
+import { HeaderFiltroComponent } from './header-filtro/header-filtro.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { DetalheProjetoComponent } from './detalhe-projeto/detalhe-projeto.compo
     HomeComponent,
     DetalheEntidadeComponent,
     DetalheDevComponent,
-    DetalheProjetoComponent
+    DetalheProjetoComponent,
+    ListaDevsComponent,
+    ListaProjetosComponent,
+    HeaderFiltroComponent
   ],
   imports: [
     BrowserModule,
