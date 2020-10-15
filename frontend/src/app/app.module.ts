@@ -9,6 +9,9 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { CadastroProjetoComponent } from './cadastro-projeto/cadastro-projeto.component';
 import { CadastroEntidadeComponent } from './cadastro-entidade/cadastro-entidade.component';
 import { HomeComponent } from './home/home.component';
+import { DetalheEntidadeComponent } from './detalhe-entidade/detalhe-entidade.component';
+import { DetalheDevComponent } from './detalhe-dev/detalhe-dev.component';
+import { DetalheProjetoComponent } from './detalhe-projeto/detalhe-projeto.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { HomeComponent } from './home/home.component';
     CadastroComponent,
     CadastroProjetoComponent,
     CadastroEntidadeComponent,
-    HomeComponent
+    HomeComponent,
+    DetalheEntidadeComponent,
+    DetalheDevComponent,
+    DetalheProjetoComponent
   ],
   imports: [
     BrowserModule,
