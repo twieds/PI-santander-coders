@@ -1,0 +1,31 @@
+a {
+    text-decoration: none;
+}
+
+.dev-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 0 1rem 0;
+    border-bottom: 1px solid #DADEED
+    
+}
+
+.input-block h3 {
+    padding-bottom: 1rem;
+}
+
+.dev-wrapper img {
+    height: 6rem;
+    padding-right: 1.5rem;
+}
+
+@media (min-width: 700px) {
+    .dev-wrapper {
+        padding: 1.5rem 0 1.5rem 0;
+    }
+    .dev-wrapper img {
+        height: 8rem;
+        padding-right: 2.5rem;
+    }
+}
