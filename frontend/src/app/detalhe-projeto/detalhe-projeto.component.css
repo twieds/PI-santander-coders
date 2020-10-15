@@ -1,0 +1,37 @@
+a {
+    text-decoration: none;
+}
+
+.projeto-wrapper:not(:last-child):after {
+    content:'';
+    width: 100%;
+    display: block;
+    height: 1px;
+    border-bottom: 1px solid var(--color-divider);
+    margin-bottom: 1.8rem;
+}
+
+.text-block h3 {
+    color: var(--color-text-label);
+    padding-bottom: 0.5rem;
+}
+
+
+.info-block {
+    background-color: #F9F9FA;
+    border-top: 1px solid var(--color-divider);
+    padding: 1rem;
+    margin-top: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-block .project-info span {
+    line-height: 2.2rem;
+}
+
+.info-block .project-info .tags {
+    padding-top: 1rem;
+}
