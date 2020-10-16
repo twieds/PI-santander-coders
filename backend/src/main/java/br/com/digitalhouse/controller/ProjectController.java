@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.digitalhouse.model.Project;
-import br.com.digitalhouse.repository.ProjectRepository;
+import br.com.digitalhouse.service.ProjectService;
 
 @CrossOrigin
 @RestController
@@ -22,31 +22,31 @@ import br.com.digitalhouse.repository.ProjectRepository;
 public class ProjectController {
 	
 	@Autowired
-	private ProjectRepository repository;
+	private ProjectService service;
 	
 	@GetMapping
-	public List<Project> listar() {
-		return repository.findAll();
+	public List<Project> getAllProjects() {
+		return service.getAllProjects();
 	}
 	
 	@GetMapping("/{id}")
-	public Project buscar(@PathVariable Long id) {
-		return repository.findById(id).orElse(null);
+	public Project getProjectByID(@PathVariable Long id) {
+		return service.getProjectByID(id);
 	}
 	
 	@PostMapping
-	public void salvar(@RequestBody Project project) {
-		repository.save(project);
+	public void addProject(@RequestBody Project project) {
+		service.addProject(project);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
-		repository.deleteById(id);
+	public void deleteProjectByID(@PathVariable Long id) {
+		service.deleteProjectByID(id);
 	}
 	
 	@PutMapping("/{id}")
-	public void atualizar(@PathVariable Long id, @RequestBody Project project) {
-
+	public void setProjectByID(@PathVariable Long id, @RequestBody Project project) {
+		service.setProjectByID(id, project);
 	}
 
 }

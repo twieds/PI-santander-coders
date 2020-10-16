@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.digitalhouse.model.Ong;
-import br.com.digitalhouse.repository.OngRepository;
+import br.com.digitalhouse.service.OngService;
 
 @CrossOrigin
 @RestController
@@ -22,31 +22,31 @@ import br.com.digitalhouse.repository.OngRepository;
 public class OngController {
 	
 	@Autowired
-	private OngRepository repository;
+	private OngService service;
 	
 	@GetMapping
-	public List<Ong> listar() {
-		return repository.findAll();
+	public List<Ong> getAllOngs() {
+		return service.getAllOngs();
 	}
 	
 	@GetMapping("/{id}")
-	public Ong buscar(@PathVariable Long id) {
-		return repository.findById(id).orElse(null);
+	public Ong getOngByID(@PathVariable Long id) {
+		return service.getOngByID(id);
 	}
 	
 	@PostMapping
-	public void salvar(@RequestBody Ong ong) {
-		repository.save(ong);
+	public void addOng(@RequestBody Ong ong) {
+		service.addOng(ong);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
-		repository.deleteById(id);
+	public void deleteOngByID(@PathVariable Long id) {
+		service.deleteOngByID(id);
 	}
 	
 	@PutMapping("/{id}")
-	public void atualizar(@PathVariable Long id, @RequestBody Ong ong) {
-
+	public void setOngByID(@PathVariable Long id, @RequestBody Ong ong) {
+		service.setOngByID(id, ong);
 	}
 
 }

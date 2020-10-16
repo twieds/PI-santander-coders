@@ -20,27 +20,27 @@ public class ProjectService {
 	private ProjectRepository repository;
 	
 	@GetMapping
-	public List<Project> listar() {
+	public List<Project> getAllProjects() {
 		return repository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Project buscar(@PathVariable Long id) {
+	public Project getProjectByID(@PathVariable Long id) {
 		return repository.findById(id).orElse(null);
 	}
 	
 	@PostMapping
-	public void salvar(@RequestBody Project project) {
+	public void addProject(@RequestBody Project project) {
 		repository.save(project);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
+	public void deleteProjectByID(@PathVariable Long id) {
 		repository.deleteById(id);
 	}
 	
 	@PutMapping("/{id}")
-	public void atualizar(@PathVariable Long id, @RequestBody Project project) {
+	public void setProjectByID(@PathVariable Long id, @RequestBody Project project) {
 
 	}
 }

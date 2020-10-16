@@ -20,27 +20,27 @@ public class OngService {
 	private OngRepository repository;
 	
 	@GetMapping
-	public List<Ong> listar() {
+	public List<Ong> getAllOngs() {
 		return repository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Ong buscar(@PathVariable Long id) {
+	public Ong getOngByID(@PathVariable Long id) {
 		return repository.findById(id).orElse(null);
 	}
 	
 	@PostMapping
-	public void salvar(@RequestBody Ong ong) {
+	public void addOng(@RequestBody Ong ong) {
 		repository.save(ong);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
+	public void deleteOngByID(@PathVariable Long id) {
 		repository.deleteById(id);
 	}
 	
 	@PutMapping("/{id}")
-	public void atualizar(@PathVariable Long id, @RequestBody Ong ong) {
+	public void setOngByID(@PathVariable Long id, @RequestBody Ong ong) {
 
 	}
 }
