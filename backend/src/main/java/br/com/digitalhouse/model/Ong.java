@@ -19,8 +19,8 @@ public class Ong {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
-	private Long id_user;
+	@Embedded
+	private User user_auth;
 	
 	@Column
 	private String name;

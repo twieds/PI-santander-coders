@@ -20,6 +20,9 @@ public class Dev {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Embedded
+	private User user_auth;
+	
 	@Column
 	private String name;
 	
