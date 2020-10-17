@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { empty, Observable, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -18,12 +17,12 @@ export class ListaDevsComponent implements OnInit {
   constructor(private service: DevService) { }
 
   ngOnInit(): void {
+    // this.service.list().subscribe(dados => this.devs = dados);
     
     this.devs$ = this.service.list()
     .pipe(
       catchError(error => {
         console.error(error);
-        this.error$.next(true);
         return empty();
       })
     );

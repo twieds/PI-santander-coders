@@ -4,10 +4,10 @@
 
 <main>
     <div id="container">
-        <table *ngIf="devs$ | async as devs; else loadingError">
-            <tr *ngFor="let dev of devs | async ;">
-                <td>{{dev.name}}</td>
-                <td>{{dev.location.city}}</td>
+        <table *ngIf=" (devs$ | async) as devs; else loadingError">
+            <tr *ngFor="let dev of devs">
+                <td>{{ dev.name }}</td>
+                <td>{{ dev.avatar }}</td>
             </tr>
         </table>
         <!-- <app-detalhe-dev></app-detalhe-dev>
