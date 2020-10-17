@@ -1,11 +1,20 @@
-export interface DevEntity {
-    id?: number;
-    avatar?: string;
-    bio?: string;
+interface UserAuth {
+    email?: string;
+    password?: string;
+}
+
+interface Location {
     city?: string;
     district?: string;
     state?: string;
+}
+
+export interface DevEntity {
+    id?: number;
+    name?: string;
+    avatar?: string;
+    bio?: string;    
     tags?: string;
-    email?: string;
-    password?: string;
+    location?: Location;
+    userAuth?: UserAuth;
 }

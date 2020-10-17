@@ -1,0 +1,32 @@
+<header>
+    <app-header-filtro></app-header-filtro>
+</header>
+
+<main>
+    <div id="container">
+        <table *ngIf="devs$ | async as devs; else loadingError">
+            <tr *ngFor="let dev of devs | async ;">
+                <td>{{dev.name}}</td>
+                <td>{{dev.location.city}}</td>
+            </tr>
+        </table>
+        <!-- <app-detalhe-dev></app-detalhe-dev>
+        <app-detalhe-dev></app-detalhe-dev>
+        <app-detalhe-dev></app-detalhe-dev> -->
+
+    </div>
+</main>
+
+<footer>
+
+</footer>
+<ng-template #loadingError>
+    <div *ngIf="error$ | async; else loading">
+        Desculpe, estamos com problemas :( <br>
+        Tente novamente mais tarde.
+    </div>
+
+    <ng-template #loading>
+        <span>Carregando devs...</span>
+    </ng-template>
+</ng-template>
