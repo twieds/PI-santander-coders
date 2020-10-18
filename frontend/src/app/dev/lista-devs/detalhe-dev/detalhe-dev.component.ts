@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DevModel } from '../../dev-model';
 
 @Component({
   selector: 'app-detalhe-dev',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalheDevComponent implements OnInit {
 
+  @Input() dev: DevModel;
   constructor() { }
 
   ngOnInit(): void {

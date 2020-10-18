@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { DevModel } from './model/dev-model';
+import { DevModel } from './dev-model';
 import { take, tap } from 'rxjs/operators'
 
 @Injectable({

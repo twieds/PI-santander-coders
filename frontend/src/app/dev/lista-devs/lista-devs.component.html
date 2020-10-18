@@ -4,16 +4,11 @@
 
 <main>
     <div id="container">
-        <table *ngIf=" (devs$ | async) as devs; else loadingError">
-            <tr *ngFor="let dev of devs">
-                <td>{{ dev.name }}</td>
-                <td>{{ dev.avatar }}</td>
-            </tr>
-        </table>
-        <!-- <app-detalhe-dev></app-detalhe-dev>
-        <app-detalhe-dev></app-detalhe-dev>
-        <app-detalhe-dev></app-detalhe-dev> -->
-
+        <ng-container *ngIf=" (devs$ | async) as devs; else loadingError">
+            <ng-container *ngFor="let dev of devs">
+                <app-detalhe-dev [dev]="dev"></app-detalhe-dev>
+            </ng-container>
+        </ng-container>
     </div>
 </main>
 

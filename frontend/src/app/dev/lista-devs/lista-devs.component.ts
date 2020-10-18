@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { empty, Observable, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { DevService } from '../dev.service';
-import { DevModel } from '../model/dev-model';
+import { DevModel } from '../dev-model';
 
 @Component({
   selector: 'app-lista-devs',
@@ -17,8 +17,7 @@ export class ListaDevsComponent implements OnInit {
   constructor(private service: DevService) { }
 
   ngOnInit(): void {
-    // this.service.list().subscribe(dados => this.devs = dados);
-    
+
     this.devs$ = this.service.list()
     .pipe(
       catchError(error => {
