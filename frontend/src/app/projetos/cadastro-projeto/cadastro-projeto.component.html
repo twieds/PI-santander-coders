@@ -1,10 +1,10 @@
 <div id="container">
     <h2>CADASTRO DO PROJETO</h2>
 
-    <form action="" autocomplete="off">
+    <form autocomplete="off"  [formGroup]="form">
         <div class="input-block">
             <label for="project-title">TÍTULO DO PROJETO</label>
-            <input name="project-title" id="project-title" required>
+            <input formControlName="title" id="project-title" required>
         </div>
 
         <div class="input-wrapper">
@@ -20,13 +20,13 @@
 
             <div class="input-block">
                 <label for="">ATÉ</label>
-                <input name="project-deadline" id="project-deadline" placeholder="MES/ANO" required>
+                <input type="date" formControlName="deadline" id="project-deadline" required>
             </div>
         </div>
 
         <div class="input-block">
             <label for="project-description">DESCRIÇÃO DO PROJETO</label>
-            <textarea name="project-description" id="project-description" placeholder="" required></textarea>
+            <textarea formControlName="description" id="project-description" placeholder="" required></textarea>
         </div>
 
         <div class="input-block">
@@ -43,7 +43,7 @@
     </form>
 
     <div class="buttons-wrapper">
-        <a href="" class="button button-primary">PUBLICAR</a>
-        <a href="" class="button button-secondary">CANCELAR</a>
+        <button class="button button-primary" (click)="onSubmit()">PUBLICAR</button>
+        <button class="button button-secondary" (click)="onCancel()">CANCELAR</button>
     </div>
 </div>
