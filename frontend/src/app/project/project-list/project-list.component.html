@@ -1,0 +1,29 @@
+<header>
+    <app-header-filtro></app-header-filtro>
+</header>
+
+<main>
+    <div id="container">
+        <ng-container *ngIf=" (projects$ | async) as projects; else loadingError">
+            <ng-container *ngFor="let project of projects">
+
+                <app-project-detail [project]="project"></app-project-detail>
+            </ng-container>
+        </ng-container>
+    </div>
+</main>
+
+<footer>
+
+</footer>
+
+<ng-template #loadingError>
+    <div *ngIf="error$ | async; else loading">
+        Desculpe, estamos com problemas :( <br>
+        Tente novamente mais tarde.
+    </div>
+
+    <ng-template #loading>
+        <span>Carregando devs...</span>
+    </ng-template>
+</ng-template>

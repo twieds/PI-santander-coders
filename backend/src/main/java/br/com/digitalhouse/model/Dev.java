@@ -26,8 +26,11 @@ public class Dev {
 	@Column
 	private String name;
 	
-	@Lob
-	private Byte[] avatar;
+//	@Lob
+//	private Byte[] avatar;
+	
+	@Column
+	private String avatar;
 	
 	@Column(columnDefinition="TEXT")
 	private String bio;
