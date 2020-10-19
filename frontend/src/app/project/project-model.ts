@@ -1,6 +1,6 @@
-export interface ProjetoModel {
+export interface ProjectModel {
     id?: number;
-    id_ong?: string;
+    id_ngo?: string;
     title?: string;
     description?: string;
     deadline?: Date;

@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ProjetoService } from '../projeto.service';
+import { ProjectService } from '../project.service';
 
 @Component({
-  selector: 'app-cadastro-projeto',
-  templateUrl: './cadastro-projeto.component.html',
-  styleUrls: ['./cadastro-projeto.component.css']
+  selector: 'app-project-entry',
+  templateUrl: './project-entry.component.html',
+  styleUrls: ['./project-entry.component.css']
 })
 
 // TODO: add methods put and delete
-export class CadastroProjetoComponent implements OnInit {
+export class ProjectEntryComponent implements OnInit {
   
   form: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder, private service: ProjetoService) { }
+  constructor(private fb: FormBuilder, private service: ProjectService) { }
 
   // TODO: add validators  
   ngOnInit(): void {

@@ -10,28 +10,28 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderFiltroComponent } from './header-filtro/header-filtro.component';
-import { CadastroDevComponent } from './dev/cadastro-dev/cadastro-dev.component';
-import { DetalheDevComponent } from './dev/lista-devs/detalhe-dev/detalhe-dev.component';
-import { ListaDevsComponent } from './dev/lista-devs/lista-devs.component';
-import { CadastroEntidadeComponent } from './entidade/cadastro-entidade/cadastro-entidade.component';
-import { CadastroProjetoComponent } from './projetos/cadastro-projeto/cadastro-projeto.component';
-import { DetalheProjetoComponent } from './projetos/lista-projetos/detalhe-projeto/detalhe-projeto.component';
-import { ListaProjetosComponent } from './projetos/lista-projetos/lista-projetos.component';
+import { DevSignUpComponent } from './dev/dev-signup/dev-signup.component';
+import { DevDetailComponent } from './dev/dev-list/dev-detail/dev-detail.component';
+import { DevListComponent } from './dev/dev-list/dev-list.component';
+import { NgoSignUpComponent } from './ngo/ngo-signup/ngo-signup.component';
+import { ProjectEntryComponent } from './project/project-entry/project-entry.component';
+import { ProjectDetailComponent } from './project/project-list/project-detail/project-detail.component';
+import { ProjectListComponent } from './project/project-list/project-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CadastroDevComponent,
+    DevSignUpComponent,
     CadastroComponent,
-    CadastroProjetoComponent,
-    CadastroEntidadeComponent,
+    ProjectEntryComponent,
+    NgoSignUpComponent,
     HomeComponent,
-    DetalheDevComponent,
-    DetalheProjetoComponent,
-    ListaDevsComponent,
-    ListaProjetosComponent,
+    DevDetailComponent,
+    ProjectDetailComponent,
+    DevListComponent,
+    ProjectListComponent,
     HeaderFiltroComponent
   ],
   imports: [

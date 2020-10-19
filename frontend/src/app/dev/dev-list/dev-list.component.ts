@@ -5,11 +5,11 @@ import { DevService } from '../dev.service';
 import { DevModel } from '../dev-model';
 
 @Component({
-  selector: 'app-lista-devs',
-  templateUrl: './lista-devs.component.html',
-  styleUrls: ['./lista-devs.component.css']
+  selector: 'app-dev-list',
+  templateUrl: './dev-list.component.html',
+  styleUrls: ['./dev-list.component.css']
 })
-export class ListaDevsComponent implements OnInit {
+export class DevListComponent implements OnInit {
 
   devs$: Observable<DevModel[]>;
   error$ = new Subject<boolean>();

@@ -4,21 +4,27 @@ import { race } from 'rxjs/operators';
 import { DevService } from '../dev.service';
 
 @Component({
-  selector: 'app-cadastro-dev',
-  templateUrl: './cadastro-dev.component.html',
-  styleUrls: ['./cadastro-dev.component.css']
+  selector: 'app-dev-signup',
+  templateUrl: './dev-signup.component.html',
+  styleUrls: ['./dev-signup.component.css']
 })
-export class CadastroDevComponent implements OnInit{
+
+// TODO: add methods put and delete
+
+export class DevSignUpComponent implements OnInit{
 
   form: FormGroup;
   submitted = false;
 
   constructor(private fb: FormBuilder, private service: DevService) { }
 
+  // TODO: 
+  //  [ ] add all form fields
+  //  [ ] add validators 
   ngOnInit(): void {
     this.form = this.fb.group({
       name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
-      avatar: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
+      avatar: [''],
       bio: ['']
     })
   }

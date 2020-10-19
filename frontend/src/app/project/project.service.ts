@@ -2,19 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { ProjetoModel } from './projetos-model';
+import { ProjectModel } from './project-model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjetoService {
+export class ProjectService {
 
   private readonly API = `${environment.API}project`
 
   constructor(private http: HttpClient) { }
 
   list() {
-    return this.http.get<ProjetoModel[]>(this.API).pipe();
+    return this.http.get<ProjectModel[]>(this.API).pipe();
   }
 
   create(project) {
