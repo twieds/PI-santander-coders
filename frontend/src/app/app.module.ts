@@ -14,9 +14,15 @@ import { DevSignUpComponent } from './dev/dev-signup/dev-signup.component';
 import { DevDetailComponent } from './dev/dev-list/dev-detail/dev-detail.component';
 import { DevListComponent } from './dev/dev-list/dev-list.component';
 import { NgoSignUpComponent } from './ngo/ngo-signup/ngo-signup.component';
-import { ProjectEntryComponent } from './project/project-entry/project-entry.component';
 import { ProjectDetailComponent } from './project/project-list/project-detail/project-detail.component';
 import { ProjectListComponent } from './project/project-list/project-list.component';
+import { NgoProfileComponent } from './ngo/ngo-profile/ngo-profile.component';
+import { AddProjectComponent } from './project/add-project/add-project.component';
+import { ProjectEntryComponent } from './project/project-entry/project-entry.component';
+import { DevProfileComponent } from './dev/dev-profile/dev-profile.component';
+import { NgoListComponent } from './ngo/ngo-list/ngo-list.component';
+import { NgoDetailComponent } from './ngo/ngo-list/ngo-detail/ngo-detail.component';
+import { HeaderNavComponent } from './header-nav/header-nav.component';
 
 
 @NgModule({
@@ -25,14 +31,20 @@ import { ProjectListComponent } from './project/project-list/project-list.compon
     LoginComponent,
     DevSignUpComponent,
     CadastroComponent,
-    ProjectEntryComponent,
+    AddProjectComponent,
     NgoSignUpComponent,
     HomeComponent,
     DevDetailComponent,
     ProjectDetailComponent,
     DevListComponent,
     ProjectListComponent,
-    HeaderFiltroComponent
+    HeaderFiltroComponent,
+    NgoProfileComponent,
+    ProjectEntryComponent,
+    DevProfileComponent,
+    NgoListComponent,
+    NgoDetailComponent,
+    HeaderNavComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { empty, Observable, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { DevService } from '../dev.service';
-import { DevModel } from '../dev-model';
+import { DevService } from '../core/dev.service';
+import { DevModel } from '../core/dev-model';
 
 @Component({
   selector: 'app-dev-list',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { race } from 'rxjs/operators';
-import { DevService } from '../dev.service';
+import { DevService } from '../core/dev.service';
 
 @Component({
   selector: 'app-dev-signup',
