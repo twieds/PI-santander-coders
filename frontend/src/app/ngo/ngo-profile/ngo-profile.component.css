@@ -1,0 +1,31 @@
+#container h2 {
+    padding: 0.5rem 0rem 2rem 0rem;
+}
+
+.fieldset-container:not(:last-child) {
+    border-bottom: 1px solid lightgray;
+    padding: 0.5rem 0;
+}
+
+.buttons-wrapper {
+    margin-top: 1.5rem;
+}
+
+@media (min-width: 700px) {
+    .buttons-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .buttons-wrapper .button {
+        width: 48.5%;
+    }
+    
+    .input-wrapper {
+        display: flex;
+        column-gap: 20px;
+        justify-content: space-between;
+    }
+
+}
+

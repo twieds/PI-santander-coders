@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ProjectService } from '../project.service';
+import { ActivatedRoute } from '@angular/router';
+import { ProjectModel } from '../core/project-model';
+import { ProjectService } from '../core/project.service';
 
 @Component({
   selector: 'app-project-entry',
@@ -10,37 +12,20 @@ import { ProjectService } from '../project.service';
 
 // TODO: add methods put and delete
 export class ProjectEntryComponent implements OnInit {
-  
-  form: FormGroup;
-  submitted = false;
+  project: ProjectModel;
 
-  constructor(private fb: FormBuilder, private service: ProjectService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private service: ProjectService
+  ) { }
 
-  // TODO: add validators  
   ngOnInit(): void {
-    this.form = this.fb.group({
-      title: [''],
-      description: [''],
-      deadline: [''],
-      category: ['']
-    })
+    this.getDev();
   }
 
-  onSubmit() {
-    this.submitted = true;
-    console.log(this.form.value)
-    if (this.form.valid) {
-      console.log('submit');
-      this.service.create(this.form.value).subscribe(
-        success => console.log('sucesso'),
-        error => console.error(error),
-        () => console.log('request completo')
-      );
-    }
-  }
-
-  onCancel() {
-    this.submitted = false;
-    this.form.reset();
+  getDev(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    this.service.getProjectByID(id).subscribe(project => this.project = project);
   }
 }

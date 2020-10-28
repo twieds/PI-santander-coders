@@ -1,0 +1,49 @@
+<div id="container">
+    <h2>CADASTRO DO PROJETO</h2>
+
+    <form autocomplete="off"  [formGroup]="form">
+        <div class="input-block">
+            <label for="project-title">TÍTULO DO PROJETO</label>
+            <input formControlName="title" id="project-title" required>
+        </div>
+
+        <div class="input-wrapper">
+            <div class="input-block">
+                <label for="">PRECISO DE...</label>
+                <select name="type-of-project" id="type-of-project">
+                    <option value="1">DESENVOLVIMENTO WEB</option>
+                    <option value="2">DESENVOLVIMENTO DESKTOP</option>
+                    <option value="3">DESENVOLVIMENTO ANDROID</option>
+                    <option value="3">DESENVOLVIMENTO iOS</option>
+                </select>
+            </div>
+
+            <div class="input-block">
+                <label for="">ATÉ</label>
+                <input type="date" formControlName="deadline" id="project-deadline" required>
+            </div>
+        </div>
+
+        <div class="input-block">
+            <label for="project-description">DESCRIÇÃO DO PROJETO</label>
+            <textarea formControlName="description" id="project-description" placeholder="" required></textarea>
+        </div>
+
+        <div class="input-block">
+            <label for="tags">TAGS</label>
+            <input name="tags" id="tags" placeholder="PESQUISAR TAGS...">
+
+            <!-- PLACEHOLDER ENQUANTO NÃO É FEITO A LOGICA NO JS -->
+            <div class="tags-wrapper">
+                <a class="tag tag-selected">WORDPRESS</a>
+                <a class="tag tag-selected">PHP</a>
+                <a class="tag tag-unselected">DJANGO</a>
+            </div>
+        </div>
+    </form>
+
+    <div class="buttons-wrapper">
+        <button class="button button-primary" (click)="onSubmit()">PUBLICAR</button>
+        <button class="button button-secondary" (click)="onCancel()">CANCELAR</button>
+    </div>
+</div>

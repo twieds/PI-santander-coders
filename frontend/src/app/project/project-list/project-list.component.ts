@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { empty, Observable, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { ProjectService } from '../project.service';
-import { ProjectModel } from '../project-model';
+import { ProjectModel } from '../core/project-model';
+import { ProjectService } from '../core/project.service';
 
 @Component({
   selector: 'app-project-list',
