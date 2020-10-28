@@ -15,7 +15,9 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "project")
 public class Project {
@@ -24,9 +26,10 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name = "dev_id", nullable = false)
-	private Ong ong;
+	//TODO: adicionar novamente apos os testes
+//	@ManyToOne
+//	@JoinColumn(name = "id_ong")
+//	private Ong ong;
 	
 	@Column
 	private String title;
@@ -34,17 +37,18 @@ public class Project {
 	@Column(columnDefinition="TEXT")
 	private String description;
 	
-	@DateTimeFormat(pattern="yyyy-mm")
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name="deadline")
 	private LocalDate deadline;
 	
 	@Column(columnDefinition="TINYTEXT")
-	private String socials;
-	
-	@Column(columnDefinition="TINYTEXT")
 	private String tags;
 	
-	@Column(columnDefinition = "ENUM('front_end', 'back_end', 'full_end', 'mobile', 'desktop')")
-    @Enumerated(EnumType.STRING)
-    private Category category;
+	@Column
+	private int id_category;
+	
+	//TODO: adicionar novamente apos os testes
+//	@Column(columnDefinition = "ENUM('front_end', 'back_end', 'full_stack', 'mobile', 'desktop')")
+//    @Enumerated(EnumType.STRING)
+//    private Category category;
 }

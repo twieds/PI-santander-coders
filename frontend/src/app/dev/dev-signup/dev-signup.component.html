@@ -1,22 +1,28 @@
 <div id="container">
     <h2>SEUS DADOS</h2>
 
-    <form action="" autocomplete="off">
+    <form autocomplete="off" [formGroup]="form">
 
         <!-- INICIO DA AREA DE DADOS PESSOAIS  -->
         <fieldset id="personal" class="fieldset-container">
 
             <div class="input-wrapper">
-                
+
                 <div class="fields">
                     <div class="input-block">
                         <label for="fullname">NOME COMPLETO</label>
-                        <input name="fullname" id="fullname" required>
+                        <input 
+                            id="fullname" 
+                            formControlName="name"
+                        />
                     </div>
-                    
+
                     <div class="input-block">
                         <label for="avatar">AVATAR</label>
-                        <input name="avatar" id="avatar">
+                        <input 
+                            id="avatar" 
+                            formControlName="avatar"
+                        />
                     </div>
                 </div>
 
@@ -25,7 +31,11 @@
 
             <div class="input-block">
                 <label for="biography">BIOGRAFIA</label>
-                <textarea name="biography" id="biography" placeholder="Nos conte um pouco sobre você..."></textarea>
+                <textarea 
+                    id="biography" 
+                    formControlName="bio"
+                    placeholder="Nos conte um pouco sobre você...">
+                </textarea>
             </div>
 
             <div class="input-block">
@@ -51,7 +61,7 @@
                 <a class="tag tag-unselected">HTML</a>
                 <a class="tag tag-unselected">CSS</a>
             </div>
-            
+
 
             <div class="input-block">
                 <label for="skilled-at">SOU BOM EM...</label>
@@ -64,7 +74,7 @@
                 <a class="tag tag-unselected">PYTHON</a>
                 <a class="tag tag-unselected">JAVASCRIPT</a>
             </div>
-        <!-- FIM DA AREA DE COMPETENCIAS  -->
+            <!-- FIM DA AREA DE COMPETENCIAS  -->
         </fieldset>
 
         <!-- INICIO DA AREA DE HISTÓRICO ACADEMICO  -->
@@ -92,7 +102,8 @@
     </form>
 
     <div class="buttons-wrapper">
-        <a href="" class="button button-primary">SALVAR</a>
-        <a href="" class="button button-secondary">CANCELAR</a>
+        <button class="button button-primary" (click)="onSubmit()">SALVAR</button>
+        <button class="button button-secondary" (click)="onCancel()">CANCELAR</button>
     </div>
+
 </div>

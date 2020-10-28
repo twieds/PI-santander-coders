@@ -1,0 +1,22 @@
+
+    <div class="projeto-wrapper" *ngIf="project">
+        <div class="text-block">
+            <h3>{{ project.title | uppercase }}</h3>
+            <p>{{ project.description }}</p>
+        </div>
+    
+        <div class="info-block">
+            <div class="project-info">
+                <span> <strong>Prazo: </strong> {{ project.deadline }} <br> </span>
+                <span> <strong>Categoria: </strong> {{ project.category }} </span>
+    
+                <div class="tags">
+                    <a class="tag tag-selected">REACT</a>
+                    <a class="tag tag-selected">HTML</a>
+                    <a class="tag tag-selected">CSS</a>
+                </div>
+            </div>
+            
+            <a href="" class="material-icons">mail</a>
+        </div>
+    </div>
