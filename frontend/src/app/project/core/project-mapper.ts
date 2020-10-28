@@ -26,3 +26,4 @@ export class ProjectMapper extends Mapper<ProjectEntity, ProjectModel> {
         };
     }
 }
+ 

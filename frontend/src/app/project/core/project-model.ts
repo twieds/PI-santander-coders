@@ -5,4 +5,4 @@ export interface ProjectModel {
     description?: string;
     deadline?: Date;
     category?: number;
-}
+} 

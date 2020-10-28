@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'ngo-profile/:id',component: NgoProfileComponent},
   
   {path: '', pathMatch: 'full', redirectTo:'/home'}
-];
+]; 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

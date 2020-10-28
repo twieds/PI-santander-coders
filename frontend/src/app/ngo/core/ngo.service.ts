@@ -28,6 +28,6 @@ export class NgoService {
   getNgoByID(id: number): Observable<NgoModel> {
     return this.httpBase
         .getAll<NgoModel>(`${this.API}/${id}`)
-        .pipe(map((x) => this.mapper.mapFrom(x.data)));
+        .pipe(map((x) => this.mapper.mapFrom(x.data))); 
   }
 }

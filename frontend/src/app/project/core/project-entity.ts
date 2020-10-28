@@ -5,4 +5,4 @@ export interface ProjectEntity {
     description?: string;
     deadline?: Date;
     category?: number;
-}
+} 

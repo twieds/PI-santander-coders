@@ -16,5 +16,5 @@ export interface DevEntity {
     bio?: string;
     tags?: string;
     location?: LocationEntity;
-    userAuth?: UserAuthEntity;
+    userAuth?: UserAuthEntity; 
 }

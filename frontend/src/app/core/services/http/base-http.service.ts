@@ -44,6 +44,6 @@ export class BaseHttpService {
   }
 
   getData(url: string): Observable<any> {
-    return this._http.getData(url);
+    return this._http.getData(url); 
   }
 }

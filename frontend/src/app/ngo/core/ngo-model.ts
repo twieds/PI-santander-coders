@@ -16,5 +16,5 @@ export interface NgoModel {
     bio?: string;
     how_can_we_help?: string;
     socials?: string;
-    location?: LocationModel;
+    location?: LocationModel; 
 }

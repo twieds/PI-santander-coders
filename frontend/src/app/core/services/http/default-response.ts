@@ -47,6 +47,6 @@ export class DefaultResponse<T> {
             case "PUT":
                 this.data = _data;
                 return;
-        }
+        } 
     }
 }

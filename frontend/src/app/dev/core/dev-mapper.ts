@@ -24,7 +24,7 @@ export class DevMapper extends Mapper<DevEntity, DevModel> {
             bio: param.bio,
             tags: param.tags,
             location: param.location,
-            userAuth: param.userAuth
+            userAuth: param.userAuth 
         };
     }
 }

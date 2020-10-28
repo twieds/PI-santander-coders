@@ -16,5 +16,5 @@ export interface NgoEntity {
     bio?: string;
     how_can_we_help?: string;
     socials?: string;
-    location?: LocationEntity;
+    location?: LocationEntity; 
 }

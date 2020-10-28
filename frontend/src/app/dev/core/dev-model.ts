@@ -16,5 +16,5 @@ export interface DevModel {
     bio?: string;
     tags?: string;
     location?: LocationModel;
-    userAuth?: UserAuthModel;
+    userAuth?: UserAuthModel; 
 }

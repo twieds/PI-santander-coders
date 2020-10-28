@@ -55,5 +55,5 @@ import { HeaderNavComponent } from './header-nav/header-nav.component';
   ],
   providers: [],
   bootstrap: [AppComponent]
-})
+}) 
 export class AppModule { }

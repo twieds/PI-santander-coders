@@ -30,4 +30,4 @@ export class DevService {
         .getAll<DevModel>(`${this.API}/${id}`)
         .pipe(map((x) => this.mapper.mapFrom(x.data)));
   }
-}
+} 

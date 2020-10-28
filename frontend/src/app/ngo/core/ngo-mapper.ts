@@ -24,7 +24,7 @@ export class NgoMapper extends Mapper<NgoEntity, NgoModel> {
             bio: param.bio,
             how_can_we_help: param.how_can_we_help,
             socials: param.socials,
-            location: param.location
+            location: param.location 
         };
     }
 }
