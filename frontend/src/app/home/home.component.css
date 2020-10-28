@@ -1,15 +1,22 @@
-body .home {
+.home {
     background-color: var(--color-primary);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100vh;
 }
 
 /*  ----------NAV TEMPORÁRIA----------  */
 .nav {
-    float: right;
+    width: 95%;
+    position: absolute;
     list-style: none;
-    margin: 0.5rem 0.5rem;
+    padding: 1rem 0.2rem;
+}
+
+.nav li {
+    display:inline;
+    padding: 0rem 1.5rem 0rem 1.5rem;
 }
 
 .nav a {
@@ -19,6 +26,10 @@ body .home {
     font-weight: 300;
     cursor: pointer;
     transition: color 0.2s;
+}
+
+.nav #login {
+    float: right;
 }
 
 .nav a:hover {
