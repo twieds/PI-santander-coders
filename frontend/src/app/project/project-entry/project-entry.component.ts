@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectModel } from '../core/project-model';
 import { ProjectService } from '../core/project.service';
@@ -16,16 +17,25 @@ export class ProjectEntryComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: ProjectService
+    private service: ProjectService,
+    private titleService: Title
   ) { }
 
   ngOnInit(): void {
-    this.getDev();
+    this.getProject();
   }
 
-  getDev(): void {
+  setTitle(project) {
+    this.titleService.setTitle('Projeto - ' + project);
+  } 
+
+  getProject(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log(id);
-    this.service.getProjectByID(id).subscribe(project => this.project = project);
+
+    this.service.getProjectByID(id).subscribe(project => {
+      this.project = project;
+      this.setTitle(project.title);
+    }
+    );
   }
 }

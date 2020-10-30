@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { ProjectService } from '../core/project.service';
 
 @Component({
@@ -14,16 +15,28 @@ export class AddProjectComponent implements OnInit {
   form: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder, private service: ProjectService) { }
+  constructor(
+    private fb: FormBuilder, 
+    private service: ProjectService,
+    private titleService: Title
+    ) { }
 
   // TODO: add validators  
   ngOnInit(): void {
+    this.setTitle();
+
+    //inicialliza o formulário
     this.form = this.fb.group({
       title: [''],
       description: [''],
       deadline: [''],
       category: ['']
     })
+
+  }
+
+  setTitle() {
+    this.titleService.setTitle('Cadastro de Projeto');
   }
 
   onSubmit() {
@@ -43,4 +56,5 @@ export class AddProjectComponent implements OnInit {
     this.submitted = false;
     this.form.reset();
   }
+  
 }

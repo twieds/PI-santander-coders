@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { empty, Observable, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { NgoModel } from '../core/ngo-model';
@@ -13,9 +14,18 @@ export class NgoListComponent implements OnInit {
 
   ngo$: Observable<NgoModel[]>;
   error$ = new Subject<boolean>();
-  constructor(private service: NgoService) { }
+
+  constructor(
+    private service: NgoService,
+    private titleService: Title
+    ) { }
 
   ngOnInit(): void {
+    this.setTitle();
+    this.getNGOS();
+  }
+
+  getNGOS(): void {
     this.ngo$ = this.service.list()
     .pipe(
       catchError(error => {
@@ -24,5 +34,10 @@ export class NgoListComponent implements OnInit {
       })
     );
   }
+
+  setTitle() {
+    this.titleService.setTitle('ONGs procurando ajuda');
+  }
+
 
 }

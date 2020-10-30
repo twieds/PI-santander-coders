@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { race } from 'rxjs/operators';
 import { DevService } from '../core/dev.service';
 
@@ -16,12 +17,18 @@ export class DevSignUpComponent implements OnInit{
   form: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder, private service: DevService) { }
+  constructor(
+    private fb: FormBuilder, 
+    private service: DevService,
+    private titleService: Title
+    ) { }
 
   // TODO: 
   //  [ ] add all form fields
   //  [ ] add validators 
   ngOnInit(): void {
+    this.setTitle();
+
     this.form = this.fb.group({
       name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
       avatar: [''],
@@ -45,5 +52,9 @@ export class DevSignUpComponent implements OnInit{
   onCancel() {
     this.submitted = false;
     this.form.reset();
+  }
+
+  setTitle() {
+    this.titleService.setTitle('Cadastro de desenvolvedor');
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { NgoModel } from '../core/ngo-model';
 import { NgoService } from '../core/ngo.service';
@@ -14,7 +15,8 @@ export class NgoProfileComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: NgoService
+    private service: NgoService,
+    private titleService: Title
   ) { }
 
   ngOnInit(): void {
@@ -23,8 +25,14 @@ export class NgoProfileComponent implements OnInit {
 
   getNGO(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log(id);
-    this.service.getNgoByID(id).subscribe(ngo => this.ngo = ngo);
+
+    this.service.getNgoByID(id).subscribe(ngo => {
+      this.ngo = ngo;
+      this.setTitle(ngo.name);
+    });
   }
 
+  setTitle(ngo) {
+    this.titleService.setTitle('ONG - ' + ngo);
+  }
 }

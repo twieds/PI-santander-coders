@@ -47,6 +47,10 @@
 }
 
 /*  ----------TEXT CONTAINER----------  */
+.text-container {
+    margin-right: 1rem;
+}
+
 .text-container h1 {
     white-space: nowrap;
     font-size: 2.5rem;
@@ -85,7 +89,6 @@
 /*  ----------IMG----------  */
 .img-container img {
     width: 20rem;
-    padding: 2rem;
 }
 
 
@@ -99,7 +102,7 @@
         margin: 0rem auto;
         height: 90vh;
         width: 100%;
-        max-width: 900px;
+        max-width: 1000px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
