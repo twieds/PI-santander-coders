@@ -3,7 +3,6 @@ import { HomeComponent } from './home/home.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HeaderFiltroComponent } from './header-filtro/header-filtro.component';
 import { NgoSignUpComponent } from './ngo/ngo-signup/ngo-signup.component';
 import { NgoProfileComponent } from './ngo/ngo-profile/ngo-profile.component';
 import { AddProjectComponent } from './project/add-project/add-project.component';
@@ -18,7 +17,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'header-filtro',component: HeaderFiltroComponent},
 
   { path: 'dev-list', component: DevListComponent },
   { path: 'dev-signup', component: DevSignUpComponent },

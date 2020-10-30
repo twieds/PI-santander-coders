@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderFiltroComponent } from './header-filtro/header-filtro.component';
 import { DevSignUpComponent } from './dev/dev-signup/dev-signup.component';
 import { DevDetailComponent } from './dev/dev-list/dev-detail/dev-detail.component';
 import { DevListComponent } from './dev/dev-list/dev-list.component';
@@ -22,7 +21,8 @@ import { ProjectEntryComponent } from './project/project-entry/project-entry.com
 import { DevProfileComponent } from './dev/dev-profile/dev-profile.component';
 import { NgoListComponent } from './ngo/ngo-list/ngo-list.component';
 import { NgoDetailComponent } from './ngo/ngo-list/ngo-detail/ngo-detail.component';
-import { HeaderNavComponent } from './header-nav/header-nav.component';
+import { HeaderFiltroComponent } from './headers/header-filtro/header-filtro.component';
+import { HeaderNavComponent } from './headers/header-nav/header-nav.component';
 
 
 @NgModule({
