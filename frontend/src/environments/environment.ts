@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   logRequest: true,
   traceRequest: true,
-  API: 'http://localhost:8080/'
+  API: 'https://projeto-selfless-backend.herokuapp.com/'
 };
 
 /*
