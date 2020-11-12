@@ -1,9 +1,9 @@
-interface UserAuth {
+interface UserAuthModel {
     email?: string;
     password?: string;
 }
 
-interface Location {
+interface LocationModel {
     city?: string;
     district?: string;
     state?: string;
@@ -15,6 +15,6 @@ export interface DevModel {
     avatar?: string;
     bio?: string;
     tags?: string;
-    location?: Location;
-    userAuth?: UserAuth;
+    location?: LocationModel;
+    userAuth?: UserAuthModel; 
 }

@@ -1,0 +1,12 @@
+<ng-container *ngIf="ngo">
+    <div class="ngo-wrapper" routerLink="/ngo-profile/{{ngo.id}}">
+        <!-- <img src="/assets/images/cadastros/avatar-picker.png" alt=""> -->
+    
+        <div class="input-block" >
+            <h3>{{ ngo.name }}</h3>
+            <p>{{ ngo.bio }}</p>
+        </div>
+    
+        <a href="" class="material-icons">mail</a>
+    </div>
+</ng-container>

@@ -1,10 +1,12 @@
-<div class="dev-wrapper" *ngIf="dev">
-    <img src="/assets/images/cadastros/avatar-picker.png" alt="">
-
-    <div class="input-block" >
-        <h3>{{ dev.name }}</h3>
-        <p>{{ dev.bio }}</p>
+<ng-container *ngIf="dev">
+    <div class="dev-wrapper" routerLink="/dev-profile/{{dev.id}}">
+        <img src="/assets/images/cadastros/avatar-picker.png" alt="">
+    
+        <div class="input-block" >
+            <h3>{{ dev.name }}</h3>
+            <p>{{ dev.bio }}</p>
+        </div>
+    
+        <a href="" class="material-icons">mail</a>
     </div>
-
-    <a href="" class="material-icons">mail</a>
-</div>
+</ng-container>

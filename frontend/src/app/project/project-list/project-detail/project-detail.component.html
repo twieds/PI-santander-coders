@@ -1,5 +1,5 @@
-
-    <div class="projeto-wrapper" *ngIf="project">
+<ng-container *ngIf="project">
+    <div class="projeto-wrapper" routerLink="/project-entry/{{project.id}}">
         <div class="text-block">
             <h3>{{ project.title | uppercase }}</h3>
             <p>{{ project.description }}</p>

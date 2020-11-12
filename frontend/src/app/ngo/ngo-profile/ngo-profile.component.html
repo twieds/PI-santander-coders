@@ -1,0 +1,57 @@
+<ng-container *ngIf="ngo">
+
+
+    <div id="container">
+        <h2> {{ngo.name | uppercase}} </h2>
+
+        <form>
+
+            <fieldset class="fieldset-container">
+                <div class="input-block">
+                    <label for="about-you">NOSSA HISTÓRIA:</label>
+                    <textarea id="about-you" readonly> {{ngo.bio}} </textarea>
+                </div>
+
+                <div class="input-block">
+                    <label for="how-can-we-help">COMO UM DEV PODE NOS AJUDAR:</label>
+                    <textarea id="how-can-we-help" readonly> {{ngo.how_can_we_help}} </textarea>
+                </div>
+
+                <div class="input-block">
+                    <label for="social-media"> NOSSAS REDES SOCIAIS: </label>
+                    <input type="url" id="social-media" readonly value={{ngo.socials}}>
+                </div>
+            </fieldset>
+
+            <fieldset class="fieldset-container">
+
+
+                <div class="input-wrapper">
+                    <div class="input-block">
+                        <label for="">CNPJ/CPF:</label>
+                        <input id="cnpj" value={{ngo.cnpj}} readonly>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="">SOMOS...</label>
+                        <select name="type-of-entity" id="type-of-entity">
+                            <option selected value disabled="1">ASSOCIAÇÃO SEM FINS LUCRATICOS</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="input-block">
+                    <label for="location"> Localizacão </label>
+                    <input name="location" id="location" readonly>
+                </div>
+            </fieldset>
+
+        </form>
+
+        <div class="buttons-wrapper">
+            <button class="button button-primary">ENTRAR EM CONTATO</button>
+            <button class="button button-secondary" routerLink="/ngo-list">CANCELAR</button>
+        </div>
+    </div>
+
+</ng-container>

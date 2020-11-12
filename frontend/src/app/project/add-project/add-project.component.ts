@@ -1,39 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { race } from 'rxjs/operators';
-import { DevService } from '../core/dev.service';
+import { ProjectService } from '../core/project.service';
 
 @Component({
-  selector: 'app-dev-signup',
-  templateUrl: './dev-signup.component.html',
-  styleUrls: ['./dev-signup.component.css']
+  selector: 'app-add-project',
+  templateUrl: './add-project.component.html',
+  styleUrls: ['./add-project.component.css']
 })
 
 // TODO: add methods put and delete
-
-export class DevSignUpComponent implements OnInit{
-
+export class AddProjectComponent implements OnInit {
+  
   form: FormGroup;
   submitted = false;
 
   constructor(
     private fb: FormBuilder, 
-    private service: DevService,
+    private service: ProjectService,
     private titleService: Title
     ) { }
 
-  // TODO: 
-  //  [ ] add all form fields
-  //  [ ] add validators 
+  // TODO: add validators  
   ngOnInit(): void {
     this.setTitle();
 
+    //inicialliza o formulário
     this.form = this.fb.group({
-      name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
-      avatar: [''],
-      bio: ['']
+      title: [''],
+      description: [''],
+      deadline: [''],
+      category: ['']
     })
+
+  }
+
+  setTitle() {
+    this.titleService.setTitle('Cadastro de Projeto');
   }
 
   onSubmit() {
@@ -53,8 +56,5 @@ export class DevSignUpComponent implements OnInit{
     this.submitted = false;
     this.form.reset();
   }
-
-  setTitle() {
-    this.titleService.setTitle('Cadastro de desenvolvedor');
-  }
+  
 }

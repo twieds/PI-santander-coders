@@ -8,4 +8,4 @@ import bootstrap from 'bootstrap';
 })
 export class AppComponent {
   title = 'Projeto Integrador';
-}
+} 

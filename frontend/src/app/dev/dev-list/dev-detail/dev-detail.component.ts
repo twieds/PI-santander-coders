@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DevModel } from '../../dev-model';
+import { DevModel } from '../../core/dev-model';
 
 @Component({
   selector: 'app-dev-detail',

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroupDirective } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-ngo-signup',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgoSignUpComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: Title) { }
 
   ngOnInit(): void {
+    this.setTitle();
+  }
+
+  setTitle() {
+    this.titleService.setTitle('Cadastro de ONG');
   }
 
 }
+FormGroupDirective
