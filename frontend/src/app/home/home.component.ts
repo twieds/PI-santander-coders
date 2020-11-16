@@ -18,6 +18,6 @@ export class HomeComponent implements OnInit {
   }
 
   setTitle() {
-    this.titleService.setTitle('Helping Bits');
+    this.titleService.setTitle('PROJETO SELFLESS');
   }
 }
