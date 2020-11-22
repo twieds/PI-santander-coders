@@ -25,6 +25,7 @@ import { HeaderFiltroComponent } from './headers/header-filtro/header-filtro.com
 import { HeaderNavComponent } from './headers/header-nav/header-nav.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,7 @@ import { HeaderNavComponent } from './headers/header-nav/header-nav.component';
     DevProfileComponent,
     NgoListComponent,
     NgoDetailComponent,
-    HeaderNavComponent
+    HeaderNavComponent,
   ],
   imports: [
     BrowserModule,
