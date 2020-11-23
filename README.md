@@ -51,6 +51,6 @@ https://economia.uol.com.br/reportagens-especiais/mercado-de-trabalho-busca-dese
 ![redeSocial](/readme/devs.png)
 
 
-# Como ter certeza que a usuária é uma entidade sem fins lucrativos?
+# Como ter certeza que o usuário é uma entidade sem fins lucrativos?
 Não temos com inibir perfis com dados falsos mas implementaremos a checagem de veracidade nas páginas de abertura vinculada a política de uso. Neste versão priorizamos os requisitos básicos.
 
