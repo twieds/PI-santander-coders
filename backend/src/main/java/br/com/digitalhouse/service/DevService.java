@@ -10,11 +10,14 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import br.com.digitalhouse.dto.DevDTO;
 import br.com.digitalhouse.exception.DevNotFoundException;
+import br.com.digitalhouse.mapper.DevMapper;
 import br.com.digitalhouse.model.Dev;
 import br.com.digitalhouse.repository.CityRepository;
 import br.com.digitalhouse.repository.DevRepository;
 import br.com.digitalhouse.repository.StateRepository;
+import br.com.digitalhouse.request.DevRequest;
 
 @Service
 public class DevService {
@@ -28,6 +31,9 @@ public class DevService {
 	@Autowired 
 	private CityRepository cityRepository;
 	
+	@Autowired
+	private DevMapper mapper;
+	
 	@GetMapping
 	public List<Dev> getAllDevs() {
 		return repository.findAll();
@@ -38,11 +44,16 @@ public class DevService {
 	}
 	
 	@Transactional
-	public void addDev(Dev dev) {
+	public DevDTO addDev(DevRequest request) {
 		
-		stateRepository.save(dev.getLocation().getCity().getState());
-		cityRepository.save(dev.getLocation().getCity());
-		repository.save(dev);
+		Dev dev = mapper.dtoRequestToModel(request);
+		
+		if (dev.getLocation().getCity().getId() == null) {
+			stateRepository.save(dev.getLocation().getCity().getState());
+			cityRepository.save(dev.getLocation().getCity());			
+		}
+		
+		return mapper.modelToDto(repository.save(dev));
 	}
 	
 	

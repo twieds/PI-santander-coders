@@ -1,6 +1,5 @@
 package br.com.digitalhouse.model;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -8,13 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Data
@@ -26,8 +20,8 @@ public class Dev {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Embedded
-	private User user_auth;
+//	@Embedded
+//	private User user_auth;
 	
 	@Column
 	private String name;

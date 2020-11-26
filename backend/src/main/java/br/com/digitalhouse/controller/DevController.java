@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.digitalhouse.dto.DevDTO;
 import br.com.digitalhouse.model.Dev;
+import br.com.digitalhouse.request.DevRequest;
 import br.com.digitalhouse.service.DevService;
 
 @CrossOrigin
@@ -49,9 +51,9 @@ public class DevController {
 
 	
 	@PostMapping
-	public ResponseEntity<?> addDev(@RequestBody @Valid Dev dev) {
+	public ResponseEntity<?> addDev(@RequestBody @Valid DevRequest request) {
 		try {
-			service.addDev(dev);
+			DevDTO dev = service.addDev(request);
 			return ResponseEntity.status(HttpStatus.CREATED).body(dev);
 		} catch (Exception ex) {
 			return ResponseEntity.badRequest().body(ex.getMessage());
@@ -71,7 +73,7 @@ public class DevController {
 	}
 
 	
-	//TODO: o put não funciona
+	//FIXME: o put não funciona
 	@PutMapping("/{id}")
 	public ResponseEntity<?> setDevByID(@PathVariable Long id, @RequestBody @Valid Dev dev) {
 
