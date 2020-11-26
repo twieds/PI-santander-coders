@@ -2,6 +2,8 @@ package br.com.digitalhouse.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 
@@ -9,12 +11,8 @@ import lombok.Data;
 @Embeddable
 public class Location {
 	
-	@Column(name = "location_district")
-	private String district;
+	@ManyToOne
+	@JoinColumn(name = "location_city_id", nullable = false)
+	private City city;
 	
-	@Column(name = "location_city")
-	private String city;
-	
-	@Column(name = "location_state")
-	private String state;
 }

@@ -16,7 +16,7 @@ public class User {
 	@Column
 	private String password;
 	
-	@Column(columnDefinition = "ENUM('admin', 'mod', 'dev', 'ong')")
-    @Enumerated(EnumType.STRING)
-    private Role role;
+//	@Column(columnDefinition = "ENUM('admin', 'mod', 'dev', 'ong')")
+//    @Enumerated(EnumType.STRING)
+//    private Role role;
 }

@@ -1,14 +1,20 @@
 package br.com.digitalhouse.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
@@ -25,19 +31,20 @@ public class Dev {
 	
 	@Column
 	private String name;
-	
-//	@Lob
-//	private Byte[] avatar;
-	
-	@Column
-	private String avatar;
-	
+
 	@Column(columnDefinition="TEXT")
 	private String bio;
 	
-	@Column(columnDefinition="TINYTEXT")
-	private String tags;
-	
 	@Embedded
 	private Location location;
+	
+//	@ManyToMany
+//	@JoinTable(name = "dev_practice", joinColumns = @JoinColumn(name = "dev_id"))
+//	@Column(name = "practice_id")
+//	private List<Stack> practice_stack;
+	
+//	@ManyToMany
+//	@JoinTable(name = "dev_skills", joinColumns = @JoinColumn(name = "dev_id"))
+//	@Column(name = "skills_id")
+//	private List<Stack> skills_stack;
 }

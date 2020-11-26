@@ -11,17 +11,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tag")
-public class Tag {
-
+@Table(name = "state")
+public class State {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
-	private String description;
-	
-	@Column
-	private String category;
+	@Column(nullable = false)
+	private String state_name;
 
 }
