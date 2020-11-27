@@ -1,20 +1,10 @@
-interface UserAuthEntity {
-    email?: string;
-    password?: string;
-}
-
-interface LocationEntity {
-    city?: string;
-    district?: string;
-    state?: string;
-}
+import { LocationEntity } from 'src/app/core/location/location-entity';
 
 export interface DevEntity {
     id?: number;
     name?: string;
-    avatar?: string;
     bio?: string;
-    tags?: string;
     location?: LocationEntity;
-    userAuth?: UserAuthEntity; 
+    // dev_practice?: any[];
+    // dev_skills?: any[];
 }

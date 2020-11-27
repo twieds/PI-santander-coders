@@ -8,11 +8,10 @@ export class DevMapper extends Mapper<DevEntity, DevModel> {
         return {
             id: param.id,
             name: param.name,
-            avatar: param.avatar,
             bio: param.bio,
-            tags: param.tags,
-            location: param.location,
-            userAuth: param.userAuth
+            location: param.location
+            // dev_practice: param.dev_practice,
+            // dev_skills: param.dev_skills
         };
     }
 
@@ -20,11 +19,10 @@ export class DevMapper extends Mapper<DevEntity, DevModel> {
         return {
             id: param.id,
             name: param.name,
-            avatar: param.avatar,
             bio: param.bio,
-            tags: param.tags,
-            location: param.location,
-            userAuth: param.userAuth 
+            location: param.location
+            // dev_practice: param.dev_practice,
+            // dev_skills: param.dev_skills
         };
     }
 }

@@ -3,25 +3,10 @@
     padding: 0.5rem 0;
 }
 
+
 #personal .input-wrapper {    
     display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-}
-
-#personal .input-wrapper img {
-    margin-top: 1rem;
-    width: 50%;
-    justify-self: center;
-    cursor: pointer;
-}
-
-#personal .input-wrapper .fields {
-    width: 100%;
-}
-
-.tags-wrapper {
-    margin: 1.8rem 0 2.5rem 0;
+    flex-direction: column;
 }
 
 .buttons-wrapper {
@@ -38,7 +23,6 @@
         width: 48.5%;
     }
     
-
     #education .input-wrapper {
         display: flex;
         column-gap: 20px;
@@ -46,18 +30,10 @@
     }
 
     #personal .input-wrapper {
-        display: grid;
-        grid-template-columns: 4fr 1fr;
-        align-items: center;
+        display: flex;
+        flex-direction: row;
         column-gap: 1rem;
+        justify-content: space-between;
     }
-
-    #personal .input-wrapper img {
-        width: 100%;
-        margin-top: 1.5rem;
-        justify-self: right;
-    }
-
-
 
 }

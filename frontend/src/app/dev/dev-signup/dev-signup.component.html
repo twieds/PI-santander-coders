@@ -6,41 +6,39 @@
         <!-- INICIO DA AREA DE DADOS PESSOAIS  -->
         <fieldset id="personal" class="fieldset-container">
 
-            <div class="input-wrapper">
-
-                <div class="fields">
-                    <div class="input-block">
-                        <label for="fullname">NOME COMPLETO</label>
-                        <input 
-                            id="fullname" 
-                            formControlName="name"
-                        />
-                    </div>
-
-                    <div class="input-block">
-                        <label for="avatar">AVATAR</label>
-                        <input 
-                            id="avatar" 
-                            formControlName="avatar"
-                        />
-                    </div>
-                </div>
-
-                <img src="/assets/images/cadastros/avatar-picker.png" alt="avatar picker">
+            <div class="input-block">
+                <label for="fullname">NOME COMPLETO</label>
+                <input id="fullname" formControlName="name" />
             </div>
 
             <div class="input-block">
                 <label for="biography">BIOGRAFIA</label>
-                <textarea 
-                    id="biography" 
-                    formControlName="bio"
-                    placeholder="Nos conte um pouco sobre você...">
-                </textarea>
+                <textarea id="biography" formControlName="bio" placeholder="Nos conte um pouco sobre você...">
+            </textarea>
             </div>
 
-            <div class="input-block">
-                <label for="location">LOCALIZAÇÃO</label>
-                <input name="location" id="location" placeholder="Procure pela sua cidade">
+            <div class="input-wrapper">
+                <div class="input-block">
+                    <label for="state">Estado</label>
+                    <!-- <p-dropdown [options]="states" formControlName="state" [filter]="true" [style]="{'width':'100%'}"
+                    (onChange)="initializeCities()">
+                </p-dropdown> -->
+                    <select formControlName="state" id="state"
+                        (change)="initializeCities()">
+                        <option *ngFor="let state of states" [value]="state.value">
+                            {{ state.label }}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="input-block">
+                    <label for="city">Cidade</label>
+                    <select formControlName="city" id="city">
+                        <option *ngFor="let city of cities" [value]="city.value">
+                            {{ city.label }}
+                        </option>
+                    </select>
+                </div>
             </div>
 
         </fieldset>
@@ -55,12 +53,6 @@
                 <input name="practice" id="practice" placeholder="PESQUISAR COMPETÊNCIAS">
             </div>
 
-            <!-- PLACEHOLDER ENQUANTO NÃO É FEITO A LOGICA NO JS -->
-            <div class="tags-wrapper">
-                <a class="tag tag-unselected">REACT</a>
-                <a class="tag tag-unselected">HTML</a>
-                <a class="tag tag-unselected">CSS</a>
-            </div>
 
 
             <div class="input-block">
@@ -68,12 +60,7 @@
                 <input name="skilled-at" id="skilled-at" placeholder="PESQUISAR COMPETÊNCIAS">
             </div>
 
-            <!-- PLACEHOLDER ENQUANTO NÃO É FEITO A LOGICA NO JS -->
-            <div class="tags-wrapper">
-                <a class="tag tag-unselected">DJANGO</a>
-                <a class="tag tag-unselected">PYTHON</a>
-                <a class="tag tag-unselected">JAVASCRIPT</a>
-            </div>
+
             <!-- FIM DA AREA DE COMPETENCIAS  -->
         </fieldset>
 

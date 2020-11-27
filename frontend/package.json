@@ -12,7 +12,8 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~10.1.2",
+    "@angular/animations": "^10.1.6",
+    "@angular/cdk": "^11.0.1",
     "@angular/common": "~10.1.2",
     "@angular/compiler": "~10.1.2",
     "@angular/core": "~10.1.2",
@@ -24,6 +25,9 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "material-design-icons": "^3.0.1",
+    "primeflex": "^2.0.0",
+    "primeicons": "^4.1.0",
+    "primeng": "^11.0.0-rc.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -48,7 +52,6 @@
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
   },
-
   "engines": {
     "node": "12.19.0",
     "npm": "6.14.8"

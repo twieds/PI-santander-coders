@@ -1,20 +1,10 @@
-interface UserAuthModel {
-    email?: string;
-    password?: string;
-}
+import { LocationModel } from 'src/app/core/location/location-model';
 
-interface LocationModel {
-    city?: string;
-    district?: string;
-    state?: string;
-}
-
-export interface DevModel {
+export interface DevModel{
     id?: number;
     name?: string;
-    avatar?: string;
     bio?: string;
-    tags?: string;
     location?: LocationModel;
-    userAuth?: UserAuthModel; 
+    // dev_practice?: any[];
+    // dev_skills?: any[];
 }

@@ -4,6 +4,7 @@ import { catchError } from 'rxjs/operators';
 import { DevService } from '../core/dev.service';
 import { DevModel } from '../core/dev-model';
 import { Title } from '@angular/platform-browser';
+import { DevRepository } from '../core/dev-repository';
 
 @Component({
   selector: 'app-dev-list',
@@ -12,6 +13,15 @@ import { Title } from '@angular/platform-browser';
 })
 export class DevListComponent implements OnInit {
 
+  // constructor(
+  //   private repository: DevRepository,
+  //   private titleService: Title
+
+  // ) {}
+
+  // ngOnInit(): void {
+
+  // }
   devs$: Observable<DevModel[]>;
   error$ = new Subject<boolean>();
 

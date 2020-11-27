@@ -2,6 +2,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { DropdownModule } from 'primeng/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -45,13 +47,16 @@ import { HeaderNavComponent } from './headers/header-nav/header-nav.component';
     NgoListComponent,
     NgoDetailComponent,
     HeaderNavComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DropdownModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
