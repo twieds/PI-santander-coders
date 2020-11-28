@@ -4,7 +4,7 @@
 }
 
 
-#personal .input-wrapper {    
+.input-wrapper {    
     display: flex;
     flex-direction: column;
 }
@@ -23,16 +23,11 @@
         width: 48.5%;
     }
     
-    #education .input-wrapper {
-        display: flex;
-        column-gap: 20px;
-        justify-content: space-between;
-    }
 
-    #personal .input-wrapper {
+    .input-wrapper {
         display: flex;
         flex-direction: row;
-        column-gap: 1rem;
+        column-gap: 2rem;
         justify-content: space-between;
     }
 

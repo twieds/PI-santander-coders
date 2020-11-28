@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { TooltipModule } from 'primeng/tooltip';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -56,7 +58,9 @@ import { HeaderNavComponent } from './headers/header-nav/header-nav.component';
     FormsModule,
     ReactiveFormsModule,
     DropdownModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MultiSelectModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

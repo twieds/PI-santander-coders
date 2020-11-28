@@ -2,7 +2,7 @@
 
 :root {
     --color-background: #DADEED;
-    --color-primary: #87B6A6;
+    --color-primary: hsl(160, 24%, 62%);
     --color-primary-darker: #5a8688;
     --color-accent: #C2EFE0;
     --color-accent-focus: #80DDBE;;

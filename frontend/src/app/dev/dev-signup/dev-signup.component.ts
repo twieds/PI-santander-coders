@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { StateModel } from 'src/app/core/location/state/state-model';
 import { StateRepository } from 'src/app/core/location/state/state-repository';
+import { SkillModel } from 'src/app/core/skill/skill-model';
+import { SkillRepository } from 'src/app/core/skill/skill-repository';
 import { DevModel } from '../core/dev-model';
 import { DevRepository } from '../core/dev-repository';
 
@@ -11,7 +13,7 @@ import { DevRepository } from '../core/dev-repository';
   selector: 'app-dev-signup',
   templateUrl: './dev-signup.component.html',
   styleUrls: ['./dev-signup.component.css'],
-  encapsulation:ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 
 //TODO: Criar novos campos de skills (checkbox) e criar campo de contato (email/whatsapp)
@@ -22,10 +24,13 @@ export class DevSignUpComponent implements OnInit {
   states: any[] = [];
   cities: any[] = [];
 
+  skills: any[] = [];
+
   constructor(
     private fb: FormBuilder,
     private repository: DevRepository,
-    private stateRepository : StateRepository,
+    private stateRepository: StateRepository,
+    private skillRepository: SkillRepository,
     private titleService: Title
   ) { }
 
@@ -33,6 +38,7 @@ export class DevSignUpComponent implements OnInit {
     this.setTitle();
     this.initializeForm();
     this.initializeStates();
+    this.initializeSkills();
   }
 
   setTitle() {
@@ -45,9 +51,13 @@ export class DevSignUpComponent implements OnInit {
       name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
       bio: [''],
       city: [''],
-      state: ['']
-      // dev_practice: ['']
-      // dev_skills: ['']
+      state: [''],
+      whatsapp: [''],
+      linkedin: [''],
+      github: [''],
+      contact_email: [''],
+      selectedSkills: [''],
+      selectedPracticeSkills: ['']
     })
   }
 
@@ -58,18 +68,23 @@ export class DevSignUpComponent implements OnInit {
         id: this.form.value.id,
         name: this.form.value.name,
         bio: this.form.value.bio,
+        whatsapp: this.form.value.whatsapp,
+        linkedin: this.form.value.linkedin,
+        github: this.form.value.github,
+        contact_email: this.form.value.contact_email,
+        dev_practice: this.form.value.selectedPracticeSkills,
+        dev_skills: this.form.value.selectedSkills,        
         location: {
           city: { id: this.form.value.city }
-        }
+        },
+        
       } as DevModel;
 
       console.log(dev);
+      console.log(this.form.value.selectedPracticeSkills)
 
-      //se já existe registro, atualiza (método put)
-      //se não existe, cria um novo registro (método post)
       if (dev.id) {
         this.repository.putDev(dev).subscribe(response => {
-          
           this.form.reset()
         });
       } else {
@@ -85,23 +100,26 @@ export class DevSignUpComponent implements OnInit {
     this.form.reset();
   }
 
-
   initializeStates() {
     this.stateRepository.getAllStates().subscribe(response => {
-      console.log(response)
-      this.states.push( {label: response.state_name, value: response.id} )
+      this.states.push({ label: response.state_name, value: response.id })
     });
   }
 
   initializeCities() {
     this.cities = [];
     let state_id: number = this.form.value.state;
-    // let state_id=1;
-    console.log('Profile Changed: ' +state_id);
 
     this.stateRepository.getAllCitiesByState(state_id).subscribe(response => {
-      this.cities.push( {label: response.city_name, value: response.id} )
+      this.cities.push({ label: response.city_name, value: response.id })
     });
+  }
+
+  initializeSkills() {
+    this.skillRepository.getAllSkills().subscribe(response => {
+      this.skills.push({ id: response.id, description: response.description} )
+    });
+    console.log(this.skills);
   }
 
 }

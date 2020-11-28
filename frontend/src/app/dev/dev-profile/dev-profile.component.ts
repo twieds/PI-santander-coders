@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { DevModel } from '../core/dev-model';
+import { DevRepository } from '../core/dev-repository';
 import { DevService } from '../core/dev.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class DevProfileComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: DevService,
+    private repository: DevRepository,
     private titleService: Title
   ) { }
 
@@ -26,7 +27,7 @@ export class DevProfileComponent implements OnInit {
   getDev(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log(id);
-    this.service.getDevByID(id).subscribe(dev => {
+    this.repository.getDevById(id).subscribe(dev => {
       this.dev = dev
       this.setTitle(dev.name);
     });

@@ -11,6 +11,22 @@ fieldset {
     margin: 1.3rem 0rem;
 }
 
+.input-ng {
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 0.2rem;
+
+    border: 0;
+    border-radius: 0.2rem;
+    border-bottom: 3px solid var(--color-accent);
+    
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0 1rem;
+    color: var(--color-text);
+    outline: none;
+}
+
+
 .input-block label {
     color: var(--color-text-label);
 }
@@ -38,4 +54,17 @@ fieldset {
 
 .input-block input:focus, select:focus, textarea:focus{
     border-bottom: 3px solid var(--color-accent-focus);
+}
+
+.input-ng input:focus, select:focus, textarea:focus{
+    border-bottom: 3px solid var(--color-accent-focus);
+}
+
+select::placeholder, textarea::placeholder, input::placeholder {
+    color: rgb(141, 141, 141);
+}
+
+small {
+    font-size: 0.75rem;
+    color: rgb(141, 141, 141);
 }

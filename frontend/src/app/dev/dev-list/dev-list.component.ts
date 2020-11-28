@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { empty, Observable, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { DevService } from '../core/dev.service';
 import { DevModel } from '../core/dev-model';
 import { Title } from '@angular/platform-browser';
 import { DevRepository } from '../core/dev-repository';
@@ -13,20 +12,10 @@ import { DevRepository } from '../core/dev-repository';
 })
 export class DevListComponent implements OnInit {
 
-  // constructor(
-  //   private repository: DevRepository,
-  //   private titleService: Title
-
-  // ) {}
-
-  // ngOnInit(): void {
-
-  // }
-  devs$: Observable<DevModel[]>;
-  error$ = new Subject<boolean>();
+  devs: DevModel[] = [];
 
   constructor(
-    private service: DevService,
+    private repository: DevRepository,
     private titleService: Title
     ) { }
 
@@ -36,13 +25,10 @@ export class DevListComponent implements OnInit {
   }
 
   getDevs(): void {
-    this.devs$ = this.service.list()
-    .pipe(
-      catchError(error => {
-        console.error(error);
-        return empty();
-      })
-    );
+    this.devs = [];
+    this.repository.getAllDevs().then(dev => {
+      this.devs = dev;      
+    });  
   }
 
   setTitle() {

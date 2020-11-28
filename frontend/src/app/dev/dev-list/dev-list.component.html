@@ -4,10 +4,8 @@
 
 <main>
     <div id="container">
-        <ng-container *ngIf=" (devs$ | async) as devs; else loadingError">
-            <ng-container *ngFor="let dev of devs">
-                <app-dev-detail [dev]="dev"></app-dev-detail>
-            </ng-container>
+        <ng-container *ngFor="let dev of devs">
+            <app-dev-detail [dev]="dev"></app-dev-detail>
         </ng-container>
     </div>
 </main>
@@ -15,13 +13,3 @@
 <footer>
 
 </footer>
-<ng-template #loadingError>
-    <div *ngIf="error$ | async; else loading">
-        Desculpe, estamos com problemas :( <br>
-        Tente novamente mais tarde.
-    </div>
-
-    <ng-template #loading>
-        <span>Carregando devs...</span>
-    </ng-template>
-</ng-template>

@@ -9,9 +9,13 @@ export class DevMapper extends Mapper<DevEntity, DevModel> {
             id: param.id,
             name: param.name,
             bio: param.bio,
-            location: param.location
-            // dev_practice: param.dev_practice,
-            // dev_skills: param.dev_skills
+            location: param.location,
+            whatsapp: param.whatsapp,
+            linkedin: param.linkedin,
+            github: param.github,
+            contact_email: param.contact_email,
+            dev_practice: param.dev_practice,
+            dev_skills: param.dev_skills
         };
     }
 
@@ -20,9 +24,13 @@ export class DevMapper extends Mapper<DevEntity, DevModel> {
             id: param.id,
             name: param.name,
             bio: param.bio,
-            location: param.location
-            // dev_practice: param.dev_practice,
-            // dev_skills: param.dev_skills
+            location: param.location,
+            whatsapp: param.whatsapp,
+            linkedin: param.linkedin,
+            github: param.github,
+            contact_email: param.contact_email,
+            dev_practice: param.dev_practice,
+            dev_skills: param.dev_skills
         };
     }
 }

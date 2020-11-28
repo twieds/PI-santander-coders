@@ -25,11 +25,12 @@ export class DevRepository {
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
 
-    getAllDevs(): Observable<DevModel> {
+    getAllDevs(): Promise<DevModel[]> {
         return this.http
             .getAll<DevEntity[]>(`${this.API}`)
-            .pipe(mergeMap((x) => x.data))
-            .pipe(map((x) => this.mapper.mapFrom(x)));
+            .toPromise().then(x => {
+                return x.data.map(this.mapper.mapFrom);
+            })
     }
 
     postDev(param: DevModel) {
@@ -52,5 +53,5 @@ export class DevRepository {
             .delete<void>(`${this.API}/${id}`, id)
             .pipe(map((x) => x.data));
     }
-    
+
 }
