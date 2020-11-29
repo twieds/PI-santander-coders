@@ -13,6 +13,9 @@ import { DevService } from '../core/dev.service';
 export class DevProfileComponent implements OnInit {
 
   dev: DevModel;
+  practice_skills: string;
+  skills: string;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -29,9 +32,26 @@ export class DevProfileComponent implements OnInit {
     console.log(id);
     this.repository.getDevById(id).subscribe(dev => {
       this.dev = dev
+      this.initializeSkills(dev.dev_practice, dev.dev_skills);
       this.setTitle(dev.name);
     });
 }
+
+  initializeSkills(practice, skills): void{
+    let aux = [];
+
+    practice.forEach(element => {
+      aux.push(element.description);
+    });
+    this.practice_skills = aux.join(", ");
+
+    aux = [];
+    skills.forEach(element => {
+      aux.push(element.description);
+    });
+    this.skills = aux.join(", ");
+
+  }
 
   setTitle(dev) {
     this.titleService.setTitle('Dev - ' + dev);

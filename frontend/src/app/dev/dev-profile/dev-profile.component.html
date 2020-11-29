@@ -1,83 +1,63 @@
 <ng-container *ngIf="dev">
     <div id="container">
-
-        <fieldset class="fieldset-container" id="title">
-            <h2>{{dev.name | uppercase}}</h2>
-            <img src="/assets/images/cadastros/avatar-picker.png" alt="avatar picker">
-        </fieldset>
-
-        <form>
-            <!-- INICIO DA AREA DE DADOS PESSOAIS  -->
-            <fieldset id="personal" class="fieldset-container">
-                
-                <div class="input-block">
-                    <label for="biography">BIOGRAFIA</label>
-                    <textarea id="biography" readonly> {{dev.bio}} </textarea>
-                </div>
-
-                <div class="input-block">
-                    <label for="location">LOCALIZAÇÃO</label>
-                    <input name="location" id="location" readonly>
-                </div>
-
-            </fieldset>
-            <!-- FIM DA AREA DE DADOS PESSOAIS  -->
-
-            <!-- INICIO DA AREA DE COMPETENCIAS  -->
-            <fieldset id="education" class="fieldset-container">
-
-                <div class="input-block">
-                    <label for="practice">QUER PRATICAR...</label>
-                </div>
-
-                <!-- PLACEHOLDER ENQUANTO NÃO É FEITO A LOGICA NO JS -->
-                <div class="tags-wrapper">
-                    <a class="tag tag-unselected">REACT</a>
-                    <a class="tag tag-unselected">HTML</a>
-                    <a class="tag tag-unselected">CSS</a>
-                </div>
-
-
-                <div class="input-block">
-                    <label for="skilled-at">É BOM EM...</label>
-                </div>
-
-                <!-- PLACEHOLDER ENQUANTO NÃO É FEITO A LOGICA NO JS -->
-                <div class="tags-wrapper">
-                    <a class="tag tag-unselected">DJANGO</a>
-                    <a class="tag tag-unselected">PYTHON</a>
-                    <a class="tag tag-unselected">JAVASCRIPT</a>
-                </div>
-                <!-- FIM DA AREA DE COMPETENCIAS  -->
-            </fieldset>
-
-            <!-- INICIO DA AREA DE HISTÓRICO ACADEMICO  -->
-            <!-- <fieldset id="education" class="fieldset-container">
-            <h2> HISTÓRICO ACADÊMICO </h2>
-
-            <div class="input-block">
-                <label for="title">TÍTULO</label>
-                <input name="title" id="title" placeholder="CURSO, GRADUAÇÃO, TÉCNICO...">
-            </div>
-
-            <div class="input-wrapper">
-                <div class="input-block">
-                    <label for="institution">INSTITUIÇÃO</label>
-                    <input name="institution" id="institution" placeholder="ESCOLA, UNIVERSIDADE...">
-                </div>
-
-                <div class="input-block">
-                    <label for="">DATA</label>
-                    <input name="project-deadline" id="project-deadline" placeholder="MES/ANO">
-                </div>
-            </div>
-        </fieldset> -->
-            <!-- FIM DA AREA DE HISTÓRICO ACADEMICO  -->
-        </form>
-
-        <div class="buttons-wrapper">
-            <button class="button button-primary">PEDIR AJUDA</button>
-            <button class="button button-secondary" routerLink="/dev-list">VOLTAR</button>
+        <div class="title">
+            <h2 id="dev"> {{ dev.name | uppercase}} </h2>
+            <span> {{ dev.location.city.city_name }}, {{ dev.location.city.state.state_name }} </span>
         </div>
+
+        <section>
+            <div class="field-group">
+                <h4> Biografia </h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum mattis ex, quis mattis sapien
+                    aliquam sit amet. Fusce lobortis scelerisque iaculis. Integer laoreet convallis sapien id convallis.
+                    Morbi finibus lectus a augue tempus lacinia. In nisl erat, venenatis aliquet tempor
+                </p>
+            </div>
+
+        </section>
+
+        <section>
+            <div class="field-group">
+                <h4> Quer praticar: </h4>
+                <p> {{ practice_skills }} </p>
+            </div>
+
+            <div class="field-group">
+                <h4> Já sabe: </h4>
+                <p> {{ skills }} </p>
+            </div>
+        </section>
+
+
+        <section>
+            <h2> ENTRAR EM CONTATO </h2>
+            <div class="icons-wrapper">
+
+                <ng-container *ngIf="dev.whatsapp">
+                    <a href="https://api.whatsapp.com/send?1=pt_br&phone=55{{ dev.whatsapp }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/whatsapp.svg" alt="whatsapp">
+                    </a>
+                </ng-container>
+
+                <ng-container *ngIf="dev.linkedin">
+                    <a href="https://{{ dev.linkedin }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/linkedin.svg" alt="linkedin">
+                    </a>
+                </ng-container>
+
+                <ng-container *ngIf="dev.contact_email">
+                    <a href="mailto:{{ dev.contact_email }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/email.svg" alt="email">
+                    </a>
+                </ng-container>
+
+                <ng-container *ngIf="dev.github">
+                    <a href="https://{{ dev.github }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/github.svg" alt="github">
+                    </a>
+                </ng-container>
+            </div>
+        </section>
     </div>
 </ng-container>

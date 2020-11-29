@@ -13,7 +13,7 @@ import { DevRepository } from '../core/dev-repository';
 export class DevListComponent implements OnInit {
 
   devs: DevModel[] = [];
-
+ 
   constructor(
     private repository: DevRepository,
     private titleService: Title
@@ -27,6 +27,8 @@ export class DevListComponent implements OnInit {
   getDevs(): void {
     this.devs = [];
     this.repository.getAllDevs().then(dev => {
+      console.log('entrou');
+      console.log(dev);
       this.devs = dev;      
     });  
   }
