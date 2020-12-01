@@ -19,7 +19,8 @@ public interface DevRepository extends JpaRepository<Dev, Long>{
 			+ "(:city is null or d.location.city.id = :city)  "
 			+ "and (:state is null or d.location.city.state.id = :state) "
 			+ "and p.id in (:devPractice) "
-			+ "and s.id in (:devSkills)")
+			+ "and s.id in (:devSkills) "
+			+ "group by d.id")
 	
 	List<Dev> findAll(Long city, Long state, Set<Long> devSkills, Set<Long>devPractice);
 

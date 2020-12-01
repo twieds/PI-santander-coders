@@ -26,7 +26,6 @@ export class DevRepository {
     }
 
     getAllDevs(param: string): Promise<DevModel[]> {
-        console.log(`${this.API}?${param}`)
         return this.http
             .getAll<DevEntity[]>(`${this.API}?${param}`)
             .toPromise().then(x => {

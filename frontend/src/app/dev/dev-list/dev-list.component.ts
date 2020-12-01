@@ -40,7 +40,6 @@ export class DevListComponent implements OnInit {
 
   getDevs(params: string): void {
     this.repository.getAllDevs(params).then(dev => {
-      console.log('getdev')
       this.devs = dev;
     });
   }
@@ -49,8 +48,8 @@ export class DevListComponent implements OnInit {
     this.form = this.fb.group({
       selectedState: [''],
       selectedCity: [''],
-      selectedSkills: [''],
-      selectedPractice: ['']
+      selectedPractice: [''],
+      selectedSkills: ['']
     })
   }
 
@@ -58,11 +57,10 @@ export class DevListComponent implements OnInit {
     let params = new HttpParams()
     const selectedState = this.form.value.selectedState;
     const selectedCity = this.form.value.selectedCity;
-    const selectedSkills = this.form.value.selectedSkills;
     const selectedPractice = this.form.value.selectedPractice;
+    const selectedSkills = this.form.value.selectedSkills;
 
     if (selectedState) {
-      console.log('teste')
       params = params.append('state', selectedState.id);
     }
 
@@ -70,17 +68,17 @@ export class DevListComponent implements OnInit {
       params = params.append('city', selectedCity.id);
     }
 
-    if (selectedSkills) {
-      selectedSkills.forEach(skill => {
-        params = params.append('devSkills', skill.id);
-      });
-    } 
-
     if (selectedPractice) {
       selectedPractice.forEach(skill => {
         params = params.append('devPractice', skill.id);
       });
     } 
+
+    if (selectedSkills) {
+      selectedSkills.forEach(skill => {
+        params = params.append('devSkills', skill.id);
+      });
+    }
 
     this.getDevs(params.toString());
   }

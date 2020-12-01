@@ -1,0 +1,6 @@
+.nav {
+    width: 100%;
+    background-color: var(--color-primary); 
+    height: 3rem;
+    color: white;
+}

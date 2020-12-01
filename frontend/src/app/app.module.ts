@@ -28,6 +28,9 @@ import { NgoDetailComponent } from './ngo/ngo-list/ngo-detail/ngo-detail.compone
 import { HeaderFiltroComponent } from './headers/header-filtro/header-filtro.component';
 import { HeaderNavComponent } from './headers/header-nav/header-nav.component';
 import { SuccessSignupComponent } from './dev/success-signup/success-signup.component';
+import { HeaderNavPrimaryComponent } from './headers/header-nav-primary/header-nav-primary.component';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuItem} from 'primeng/api';
 
 
 @NgModule({
@@ -50,7 +53,8 @@ import { SuccessSignupComponent } from './dev/success-signup/success-signup.comp
     NgoListComponent,
     NgoDetailComponent,
     HeaderNavComponent,
-    SuccessSignupComponent
+    SuccessSignupComponent,
+    HeaderNavPrimaryComponent
     
   ],
   imports: [
@@ -62,7 +66,8 @@ import { SuccessSignupComponent } from './dev/success-signup/success-signup.comp
     DropdownModule,
     BrowserAnimationsModule,
     MultiSelectModule,
-    TooltipModule
+    TooltipModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

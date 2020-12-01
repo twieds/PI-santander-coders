@@ -60,6 +60,7 @@ public class DevService {
 			filter.setDevSkills(skillsID);			
 		}
 		
+		System.out.println(filter.getCity() + " " + filter.getState() + " " +  filter.getDevSkills() + " " +  filter.getDevPractice());
 		return repository.findAll(filter.getCity(), filter.getState(), filter.getDevSkills(), filter.getDevPractice());
 	}
 

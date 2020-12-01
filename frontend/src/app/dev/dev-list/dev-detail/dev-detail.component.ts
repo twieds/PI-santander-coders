@@ -15,11 +15,13 @@ export class DevDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.initializeSkills(this.dev.dev_practice, this.dev.dev_practice);
+    this.initializeSkills(this.dev.dev_practice, this.dev.dev_skills);
   }
 
   initializeSkills(practice, skills): void{
     let aux = [];
+    this.practice_skills = "";
+    this.skills = "";
 
     practice.forEach(element => {
       aux.push(element.description);
