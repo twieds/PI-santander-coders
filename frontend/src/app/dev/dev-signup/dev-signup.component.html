@@ -1,3 +1,6 @@
+<!-- <app-header-nav-primary></app-header-nav-primary> -->
+
+
 <div id="container">
     <h2>SEUS DADOS</h2>
 
@@ -26,7 +29,7 @@
                         styleClass="input-ng" 
                         [filter]="true"
                         placeholder="Selecionar estado"
-                        (onChange)="initializeCities()">
+                        (onChange)="initializeCities(1)">
                     </p-dropdown>
 
                     <!-- <select formControlName="state" id="state" (change)="initializeCities()">
@@ -118,7 +121,7 @@
     </form>
 
     <div class="buttons-wrapper">
-        <button class="button button-primary" (click)="onSubmit()">SALVAR</button>
+        <button class="button button-primary" (click)="onSubmit()">{{ op ? "CADASTRAR" : "ATUALIZAR"}}</button>
         <button class="button button-secondary" (click)="onCancel()">CANCELAR</button>
     </div>
 

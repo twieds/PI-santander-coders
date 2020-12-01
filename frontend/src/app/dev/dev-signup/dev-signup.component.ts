@@ -17,7 +17,7 @@ import { DevRepository } from '../core/dev-repository';
   encapsulation: ViewEncapsulation.None
 })
 
-//TODO: Criar novos campos de skills (checkbox) e criar campo de contato (email/whatsapp)
+//TODO: VALIDAÇÕES DE CAMPOS
 
 export class DevSignUpComponent implements OnInit {
 
@@ -44,12 +44,33 @@ export class DevSignUpComponent implements OnInit {
     this.initializeStates();
     this.initializeSkills();
 
-    // const id = +this.route.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.op = false;
+      this.loadDev(id);
+    }
   }
 
   setTitle() {
     this.titleService.setTitle('Desenvolvedor');
   }
+
+  loadDev(id: number) {
+    this.repository.getDevById(id).subscribe(response => {
+      this.form.controls.id.setValue(response.id);
+      this.form.controls.name.setValue(response.name)
+      this.form.controls.bio.setValue(response.bio)
+      this.form.controls.state.setValue(response.location.city.state.id)
+      this.form.controls.whatsapp.setValue(response.whatsapp)
+      this.form.controls.linkedin.setValue(response.linkedin)
+      this.form.controls.github.setValue(response.github)
+      this.form.controls.contact_email.setValue(response.contact_email)
+      this.form.controls.selectedSkills.setValue(response.dev_practice)
+      this.form.controls.selectedPracticeSkills.setValue(response.dev_skills)   
+      this.initializeCities(response.location.city.id);
+    });
+  }
+
 
   initializeForm() {
     this.form = this.fb.group({
@@ -82,7 +103,7 @@ export class DevSignUpComponent implements OnInit {
         dev_skills: this.form.value.selectedSkills,        
         location: {
           city: { id: this.form.value.city }
-        },
+        }
         
       } as DevModel;
 
@@ -92,8 +113,7 @@ export class DevSignUpComponent implements OnInit {
         });
       } else {
         this.repository.postDev(dev).subscribe(response => {
-          this.form.reset()
-          console.log('salvou')
+          this.form.reset()    
           this.router.navigateByUrl('/dev-signup-complete')
         });
       }
@@ -102,6 +122,7 @@ export class DevSignUpComponent implements OnInit {
 
   onCancel() {
     this.form.reset();
+    this.router.navigateByUrl('/home')
   }
 
   initializeStates() {
@@ -110,20 +131,24 @@ export class DevSignUpComponent implements OnInit {
     });
   }
 
-  initializeCities() {
+  initializeCities(city_id: number) {
     this.cities = [];
     let state_id: number = this.form.value.state;
-
     this.stateRepository.getAllCitiesByState(state_id).subscribe(response => {
       this.cities.push({ label: response.city_name, value: response.id })
+
+      if (this.op == false) {
+        console.log(city_id)
+        this.form.controls.city.setValue(city_id)
+      }
     });
   }
+
 
   initializeSkills() {
     this.skillRepository.getAllSkills().subscribe(response => {
       this.skills.push({ id: response.id, description: response.description} )
     });
-    console.log(this.skills);
   }
 
 }
