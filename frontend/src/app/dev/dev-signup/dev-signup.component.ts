@@ -2,6 +2,7 @@ import { state } from '@angular/animations';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StateModel } from 'src/app/core/location/state/state-model';
 import { StateRepository } from 'src/app/core/location/state/state-repository';
 import { SkillModel } from 'src/app/core/skill/skill-model';
@@ -23,15 +24,18 @@ export class DevSignUpComponent implements OnInit {
   form: FormGroup;
   states: any[] = [];
   cities: any[] = [];
-
   skills: any[] = [];
+  op: boolean = true;
+
 
   constructor(
     private fb: FormBuilder,
     private repository: DevRepository,
     private stateRepository: StateRepository,
     private skillRepository: SkillRepository,
-    private titleService: Title
+    private titleService: Title,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +43,8 @@ export class DevSignUpComponent implements OnInit {
     this.initializeForm();
     this.initializeStates();
     this.initializeSkills();
+
+    // const id = +this.route.snapshot.paramMap.get('id');
   }
 
   setTitle() {
@@ -80,17 +86,15 @@ export class DevSignUpComponent implements OnInit {
         
       } as DevModel;
 
-      console.log(dev);
-      console.log(this.form.value.selectedPracticeSkills)
-
       if (dev.id) {
         this.repository.putDev(dev).subscribe(response => {
           this.form.reset()
         });
       } else {
         this.repository.postDev(dev).subscribe(response => {
-          console.log('salvou')
           this.form.reset()
+          console.log('salvou')
+          this.router.navigateByUrl('/dev-signup-complete')
         });
       }
     }

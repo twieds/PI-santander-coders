@@ -1,12 +1,18 @@
-<ng-container *ngIf="dev">
-    <div class="dev-wrapper" routerLink="/dev-profile/{{dev.id}}">
-        <img src="/assets/images/cadastros/avatar-picker.png" alt="">
+<ng-container *ngIf="dev" >
+    <div class="wrapper">
+        
+        <section class="info">
+            <h3>{{ dev.name | uppercase }}</h3>
+            <p><small>{{ dev.location.city.city_name }}, {{ dev.location.city.state.state_name }}</small> </p>
+        </section>
+
+        <section class="skills">
+            <p> <b> Quer praticar: </b> {{ practice_skills }} || <b> Já sabe: </b> {{ skills }}</p>
+        </section>
+
     
-        <div class="input-block" >
-            <h3>{{ dev.name }}</h3>
-            <p>{{ dev.bio }}</p>
-        </div>
-    
-        <a href="" class="material-icons">mail</a>
+        <section class="go-to-profile">
+            <a routerLink="/dev-profile/{{dev.id}}"> VER PERFIL </a>
+        </section>
     </div>
 </ng-container>

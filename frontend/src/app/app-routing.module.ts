@@ -8,6 +8,7 @@ import { NgoProfileComponent } from './ngo/ngo-profile/ngo-profile.component';
 import { AddProjectComponent } from './project/add-project/add-project.component';
 import { ProjectListComponent } from './project/project-list/project-list.component';
 import { DevSignUpComponent } from './dev/dev-signup/dev-signup.component';
+import { SuccessSignupComponent } from './dev/success-signup/success-signup.component';
 import { DevListComponent } from './dev/dev-list/dev-list.component';
 import { ProjectEntryComponent } from './project/project-entry/project-entry.component';
 import { DevProfileComponent } from './dev/dev-profile/dev-profile.component';
@@ -20,6 +21,8 @@ const routes: Routes = [
 
   { path: 'dev-list', component: DevListComponent },
   { path: 'dev-signup', component: DevSignUpComponent },
+  { path: 'dev-signup/:id', component: DevSignUpComponent },
+  { path: 'dev-signup-complete',component: SuccessSignupComponent},
   { path: 'dev-profile/:id',component: DevProfileComponent},
 
   { path: 'add-project', component: AddProjectComponent },
@@ -30,6 +33,7 @@ const routes: Routes = [
   { path: 'ngo-signup', component: NgoSignUpComponent },
   { path: 'ngo-list', component: NgoListComponent },
   { path: 'ngo-profile/:id',component: NgoProfileComponent},
+  
   
   {path: '', pathMatch: 'full', redirectTo:'/home'}
 ]; 

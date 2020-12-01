@@ -2,8 +2,6 @@ package br.com.digitalhouse.dto;
 
 import java.util.List;
 
-import javax.persistence.Column;
-
 import br.com.digitalhouse.model.Location;
 import br.com.digitalhouse.model.Skill;
 import lombok.Data;

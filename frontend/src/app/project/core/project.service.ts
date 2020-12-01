@@ -13,7 +13,7 @@ import { ProjectModel } from './project-model';
 })
 export class ProjectService {
 
-  private readonly API = `${environment.API}project`
+  private readonly API = `${environment.API}/project`
   mapper = new ProjectMapper();
   
   constructor(private http: HttpClient, private httpBase: BaseHttpService) { }

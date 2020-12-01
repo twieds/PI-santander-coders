@@ -9,9 +9,29 @@ import { DevModel } from '../../core/dev-model';
 export class DevDetailComponent implements OnInit {
 
   @Input() dev: DevModel;
+  practice_skills: string;
+  skills: string;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.initializeSkills(this.dev.dev_practice, this.dev.dev_practice);
+  }
+
+  initializeSkills(practice, skills): void{
+    let aux = [];
+
+    practice.forEach(element => {
+      aux.push(element.description);
+    });
+    this.practice_skills = aux.join(", ");
+
+    aux = [];
+    skills.forEach(element => {
+      aux.push(element.description);
+    });
+    this.skills = aux.join(", ");
+
   }
 
 }

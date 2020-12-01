@@ -14,7 +14,7 @@ public class DevRequest {
 	private Long id;	
 	@NotBlank
 	private String name;
-	private String email;
+	private String email; 
 	private String password;
 	private String bio;
 	private Location location;
@@ -24,6 +24,7 @@ public class DevRequest {
 	private String contact_email;
 	private List<Skill> dev_practice;
 	private List<Skill> dev_skills;
+	
 	
 	
 //	@ManyToMany

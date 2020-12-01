@@ -29,7 +29,7 @@ export class DevProfileComponent implements OnInit {
 
   getDev(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log(id);
+    
     this.repository.getDevById(id).subscribe(dev => {
       this.dev = dev
       this.initializeSkills(dev.dev_practice, dev.dev_skills);

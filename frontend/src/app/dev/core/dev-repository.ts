@@ -25,9 +25,10 @@ export class DevRepository {
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
 
-    getAllDevs(): Promise<DevModel[]> {
+    getAllDevs(param: string): Promise<DevModel[]> {
+        console.log(`${this.API}?${param}`)
         return this.http
-            .getAll<DevEntity[]>(`${this.API}`)
+            .getAll<DevEntity[]>(`${this.API}?${param}`)
             .toPromise().then(x => {
                 return x.data.map(this.mapper.mapFrom);
             })

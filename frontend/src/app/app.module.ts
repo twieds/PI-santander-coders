@@ -27,6 +27,7 @@ import { NgoListComponent } from './ngo/ngo-list/ngo-list.component';
 import { NgoDetailComponent } from './ngo/ngo-list/ngo-detail/ngo-detail.component';
 import { HeaderFiltroComponent } from './headers/header-filtro/header-filtro.component';
 import { HeaderNavComponent } from './headers/header-nav/header-nav.component';
+import { SuccessSignupComponent } from './dev/success-signup/success-signup.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { HeaderNavComponent } from './headers/header-nav/header-nav.component';
     DevProfileComponent,
     NgoListComponent,
     NgoDetailComponent,
-    HeaderNavComponent
+    HeaderNavComponent,
+    SuccessSignupComponent
     
   ],
   imports: [

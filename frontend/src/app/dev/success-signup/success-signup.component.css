@@ -1,0 +1,36 @@
+.success {
+    display: flex;
+    flex-direction: column;
+}
+
+.success h1 {
+    font-size: 3rem;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.success h2 {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    font-weight: 400;
+    text-align: center;
+    padding-top: 0;
+}
+
+.success a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    transition: color 0.3s font-size 0.3s;
+}
+
+.success a:hover{
+    font-size: 1.1rem;
+    color: var(--color-primary);
+}
+.success img {
+    height: 25rem;
+    padding: 0;
+}

@@ -1,19 +1,43 @@
 a {
     text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 600;
 }
 
-.dev-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 1rem 0 1rem 0;
-    border-bottom: 1px solid #DADEED
-    
+small {
+    font-size: 0.9rem;
 }
 
-.input-block h3 {
-    padding-bottom: 1rem;
+p {
+    font-size: 95%;
 }
+
+h3 {
+    padding: 0;
+}
+
+.wrapper {
+    margin-bottom: 1rem;
+    border: solid 2px #ededed;
+    border-radius: 1rem;
+}
+
+.info {
+    padding: 1.5rem 0 0rem 2rem;
+}
+
+.skills {
+    padding: 0.5rem 0 1rem 2rem;
+}
+
+.go-to-profile {
+    background-color: #F9F9FA;
+    border-top: 1px solid #DADEED;
+    border-radius: 0rem 0rem 1rem 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
 
 .dev-wrapper img {
     height: 6rem;
@@ -23,9 +47,5 @@ a {
 @media (min-width: 700px) {
     .dev-wrapper {
         padding: 1.5rem 0 1.5rem 0;
-    }
-    .dev-wrapper img {
-        height: 8rem;
-        padding-right: 2.5rem;
     }
 }

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.digitalhouse.dto.DevDTO;
+import br.com.digitalhouse.filter.DevFilter;
 import br.com.digitalhouse.model.Dev;
 import br.com.digitalhouse.request.DevRequest;
 import br.com.digitalhouse.service.DevService;
@@ -31,10 +32,11 @@ public class DevController {
 
 	@Autowired
 	private DevService service;
+	
 
 	@GetMapping
-	public List<Dev> getAllDevs() {
-		return service.getAllDevs();
+	public List<Dev> getAllDevs(DevFilter filter) {
+		return service.getAllDevs(filter);
 	}
 
 	
