@@ -1,31 +1,45 @@
-#container h2 {
-    padding: 0.5rem 0rem 2rem 0rem;
+
+.title {
+    text-align: center;
+    padding-bottom: 2rem;
 }
 
-.fieldset-container:not(:last-child) {
+h4 {
+    color: var(--color-text-label);
+    font-weight: 450;
+}
+
+.title h2 {
+    padding-bottom: 0.5rem;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+}
+
+.title span {
+    font-size: 90%;
+}
+
+.field-group:not(:last-child) {
+    padding-bottom: 1rem;
+}
+
+.icons-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.icon {
+    margin: 0.5rem;
+    height: 3.5rem;
+}
+
+.icon:hover{
+    height: 3.6rem;
+}
+
+
+section:not(:last-child) {
     border-bottom: 1px solid lightgray;
-    padding: 0.5rem 0;
-}
-
-.buttons-wrapper {
-    margin-top: 1.5rem;
-}
-
-@media (min-width: 700px) {
-    .buttons-wrapper {
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .buttons-wrapper .button {
-        width: 48.5%;
-    }
-    
-    .input-wrapper {
-        display: flex;
-        column-gap: 20px;
-        justify-content: space-between;
-    }
-
+    padding: 1rem 0;
 }
 

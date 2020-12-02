@@ -2974,12 +2974,13 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
 }
 
 .p-accordion .p-accordion-header .p-accordion-header-link {
-  padding: 0.857rem 1rem;
-  border: 1px solid #c8c8c8;
-  color: #333333;
-  background: #f4f4f4;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  color: var(--color-primary);
+  background: transparent;
   font-weight: 700;
-  border-radius: 3px;
+  border-radius: 8px;
   transition: background-color 0.2s, box-shadow 0.2s;
 }
 .p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
@@ -2988,35 +2989,35 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
 .p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus {
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem #8dcdff;
+  box-shadow: none;
 }
 .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {
-  background: #dbdbdb;
+  background: var(--color-accent);
   border-color: #dbdbdb;
-  color: #333333;
+  color: var(--color-primary-darker);
 }
 .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
-  background: #007ad9;
-  border-color: #007ad9;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   color: #ffffff;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
-  border-color: #005b9f;
-  background: #005b9f;
+  border-color: var(--color-primary-darker);
+  background: var(--color-primary-darker);
   color: #ffffff;
 }
 .p-accordion .p-accordion-content {
   padding: 0.571rem 1rem;
   border: 1px solid #c8c8c8;
   background: #ffffff;
-  color: #333333;
+  color: var(--color-text);
   border-top: 0;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 .p-accordion p-accordiontab .p-accordion-tab {
   margin-bottom: 2px;

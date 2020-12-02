@@ -1,12 +1,21 @@
 <ng-container *ngIf="ngo">
-    <div class="ngo-wrapper" routerLink="/ngo-profile/{{ngo.id}}">
-        <!-- <img src="/assets/images/cadastros/avatar-picker.png" alt=""> -->
-    
-        <div class="input-block" >
-            <h3>{{ ngo.name }}</h3>
-            <p>{{ ngo.bio }}</p>
-        </div>
-    
-        <a href="" class="material-icons">mail</a>
+    <div class="wrapper">
+        <section class="info">
+            <h3>{{ ngo.name | uppercase }}</h3>
+            <p>
+                <small>{{ ngo.location.city.city_name }}, {{ ngo.location.city.state.state_name }}</small>
+                || 
+                <small> {{ ngoTypeDescription }}</small>
+            </p>
+        </section>
+
+        <section class="skills">
+            <p> <b> Sobre: </b> {{ ngo.bio }} </p>
+        </section>
+
+
+        <section class="go-to-profile">
+            <a routerLink="/ngo-profile/{{ngo.id}}"> VER PERFIL </a>
+        </section>
     </div>
 </ng-container>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgoTypeRepository } from 'src/app/core/ngotype/ngotype-repository';
 import { NgoModel } from '../../core/ngo-model';
 
 @Component({
@@ -9,9 +10,25 @@ import { NgoModel } from '../../core/ngo-model';
 export class NgoDetailComponent implements OnInit {
 
   @Input() ngo: NgoModel;
-  constructor() { }
+  ngoTypeDescription: string;
+
+  constructor(
+    private ngoTypeRepository: NgoTypeRepository
+  ) { }
 
   ngOnInit(): void {
+    this.getOngTypeDescription();
+  }
+
+  getOngTypeDescription() {
+    let id: number = this.ngo.ongTypeId;
+
+    if (id) {
+      this.ngoTypeRepository.getNgosById(id).subscribe(response => {
+        this.ngoTypeDescription = response.description;
+      })
+
+    }
   }
 
 }

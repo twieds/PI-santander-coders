@@ -1,57 +1,68 @@
 <ng-container *ngIf="ngo">
-
-
     <div id="container">
-        <h2> {{ngo.name | uppercase}} </h2>
-
-        <form>
-
-            <fieldset class="fieldset-container">
-                <div class="input-block">
-                    <label for="about-you">NOSSA HISTÓRIA:</label>
-                    <textarea id="about-you" readonly> {{ngo.bio}} </textarea>
-                </div>
-
-                <div class="input-block">
-                    <label for="how-can-we-help">COMO UM DEV PODE NOS AJUDAR:</label>
-                    <textarea id="how-can-we-help" readonly> {{ngo.how_can_we_help}} </textarea>
-                </div>
-
-                <div class="input-block">
-                    <label for="social-media"> NOSSAS REDES SOCIAIS: </label>
-                    <input type="url" id="social-media" readonly value={{ngo.socials}}>
-                </div>
-            </fieldset>
-
-            <fieldset class="fieldset-container">
-
-
-                <div class="input-wrapper">
-                    <div class="input-block">
-                        <label for="">CNPJ/CPF:</label>
-                        <input id="cnpj" value={{ngo.cnpj}} readonly>
-                    </div>
-
-                    <div class="input-block">
-                        <label for="">SOMOS...</label>
-                        <select name="type-of-entity" id="type-of-entity">
-                            <option selected value disabled="1">ASSOCIAÇÃO SEM FINS LUCRATICOS</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="input-block">
-                    <label for="location"> Localizacão </label>
-                    <input name="location" id="location" readonly>
-                </div>
-            </fieldset>
-
-        </form>
-
-        <div class="buttons-wrapper">
-            <button class="button button-primary">ENTRAR EM CONTATO</button>
-            <button class="button button-secondary" routerLink="/ngo-list">CANCELAR</button>
+        <div class="title">
+            <h2 id="dev"> {{ ngo.name | uppercase}} </h2>
+            <span> {{ ngo.location.city.city_name }}, {{ ngo.location.city.state.state_name }} </span> <br>
+            <span> {{ ngoTypeDescription }} </span>
         </div>
-    </div>
 
+        <section>
+            <div class="field-group">
+                <h4> Biografia </h4>
+                <p> {{ ngo.bio }} </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="field-group">
+                <h4> Como um dev pode nos ajudar </h4>
+                <p> {{ ngo.how_can_we_help }} </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="field-group">
+                <h4 style="padding-bottom: 1rem;"> Nossos projetos </h4>
+                <p-accordion>
+                    <ng-container *ngFor="let project of projects">
+
+                        <p-accordionTab header="{{ project.title | uppercase }}">
+                            {{ project.title }} 
+                        </p-accordionTab>
+                        
+                    </ng-container>
+                </p-accordion>
+            </div>
+        </section>
+
+        <section>
+            <h2> ENTRAR EM CONTATO </h2>
+            <div class="icons-wrapper">
+
+                <ng-container *ngIf="ngo.whatsapp">
+                    <a href="https://api.whatsapp.com/send?1=pt_br&phone=55{{ ngo.whatsapp }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/whatsapp.svg" alt="whatsapp">
+                    </a>
+                </ng-container>
+
+                <ng-container *ngIf="ngo.facebook">
+                    <a href="{{ ngo.facebook }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/facebook.svg" alt="facebook">
+                    </a>
+                </ng-container>
+
+                <ng-container *ngIf="ngo.contact_email">
+                    <a href="mailto:{{ ngo.contact_email }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/email.svg" alt="email">
+                    </a>
+                </ng-container>
+
+                <ng-container *ngIf="ngo.instagram">
+                    <a href="{{ ngo.instagram }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/instagram.svg" alt="instagram">
+                    </a>
+                </ng-container>
+            </div>
+        </section>
+    </div>
 </ng-container>

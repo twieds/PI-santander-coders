@@ -32,6 +32,7 @@ import { HeaderNavPrimaryComponent } from './headers/header-nav-primary/header-n
 import {MenubarModule} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
 import { FooterComponent } from './template/footer/footer.component';
+import {AccordionModule} from 'primeng/accordion';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { FooterComponent } from './template/footer/footer.component';
     BrowserAnimationsModule,
     MultiSelectModule,
     TooltipModule,
-    MenubarModule
+    MenubarModule,   
+    AccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
