@@ -11,7 +11,7 @@ public class OngDTO {
 	private String bio;
 	private String how_can_we_help;
 	private Location location;
-	private Long ongType;
+	private Long ongTypeId;
 	private String whatsapp;
 	private String facebook;
 	private String instagram;

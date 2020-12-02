@@ -2,12 +2,10 @@ import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { empty, Observable, Subject } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { StateRepository } from 'src/app/core/location/state/state-repository';
+import { NgoTypeRepository } from 'src/app/core/ngotype/ngotype-repository';
 import { NgoModel } from '../core/ngo-model';
 import { NgoRepository } from '../core/ngo-repository';
-import { NgoService } from '../core/ngo.service';
 
 @Component({
   selector: 'app-ngo-list',
@@ -26,6 +24,7 @@ export class NgoListComponent implements OnInit {
     private fb: FormBuilder,
     private repository: NgoRepository,
     private stateRepository: StateRepository,
+    private ngoTypeRepository: NgoTypeRepository,
     private titleService: Title
   ) { }
 
@@ -34,6 +33,7 @@ export class NgoListComponent implements OnInit {
     this.setTitle();
     this.initializeForm();
     this.initializeStates();
+    this.initializeNgoTypes();
   }
 
   setTitle() {
@@ -64,9 +64,9 @@ export class NgoListComponent implements OnInit {
   }
   
   initializeNgoTypes() {
-    // this.skillRepository.getAllSkills().subscribe(response => {
-    //   this.skills.push({ id: response.id, label: response.description })
-    // });
+    this.ngoTypeRepository.getAllNgos().subscribe(response => {
+      this.ngoTypes.push({ id: response.id, label: response.description })
+    });
   }
 
   getNGOS(params: string): void {
@@ -93,9 +93,6 @@ export class NgoListComponent implements OnInit {
       params = params.append('ngoType', selectedNgoType.id);
     }
 
-    // this.getNGOS(params.toString());
-    this.getNGOS('');
+    this.getNGOS(params.toString());
   }
-
-
 }

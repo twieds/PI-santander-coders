@@ -1,7 +1,9 @@
 package br.com.digitalhouse.service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -13,10 +15,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import br.com.digitalhouse.dto.OngDTO;
+import br.com.digitalhouse.filter.OngFilter;
 import br.com.digitalhouse.mapper.OngMapper;
 import br.com.digitalhouse.model.Ong;
+import br.com.digitalhouse.model.OngType;
+import br.com.digitalhouse.model.Skill;
 import br.com.digitalhouse.repository.CityRepository;
 import br.com.digitalhouse.repository.OngRepository;
+import br.com.digitalhouse.repository.OngTypeRepository;
 import br.com.digitalhouse.repository.StateRepository;
 import br.com.digitalhouse.request.OngRequest;
 
@@ -34,9 +40,27 @@ public class OngService {
 	@Autowired 
 	private CityRepository cityRepository;
 	
+	@Autowired 
+	private OngTypeRepository ongRepository;
+
+	
 	@GetMapping
-	public List<Ong> getAllOngs() {
-		return repository.findAll();
+	public List<Ong> getAllOngs(OngFilter filter) {
+		
+		List<OngType> ongTypes = ongRepository.findAll();
+		Set<Long> ongTypesID = new HashSet<Long>();
+		
+		if (filter.getOngType() == null) {			
+			
+			for (OngType ongType: ongTypes) {				
+				ongTypesID.add(ongType.getId());
+			}
+			
+			filter.setOngType(ongTypesID);			
+		}
+		
+		
+		return repository.findAll(filter.getCity(), filter.getState(), filter.getOngType());
 	}
 	
 	public Optional<Ong> getOngByID(Long id) {

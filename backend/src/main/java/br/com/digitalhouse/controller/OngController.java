@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.digitalhouse.dto.OngDTO;
+import br.com.digitalhouse.filter.OngFilter;
 import br.com.digitalhouse.model.Ong;
 import br.com.digitalhouse.request.OngRequest;
 import br.com.digitalhouse.service.OngService;
@@ -33,8 +34,8 @@ public class OngController {
 	private OngService service;
 	
 	@GetMapping
-	public List<Ong> getAllOngs() {
-		return service.getAllOngs();
+	public List<Ong> getAllOngs(OngFilter filter) {
+		return service.getAllOngs(filter);
 	}
 	
 	@GetMapping("/{id}")

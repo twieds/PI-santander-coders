@@ -32,7 +32,7 @@ public class Ong {
 	private Location location;
 	
 	@Column
-	private Long ongType;
+	private Long ongTypeId;
 	
 	@Column
 	private String whatsapp;

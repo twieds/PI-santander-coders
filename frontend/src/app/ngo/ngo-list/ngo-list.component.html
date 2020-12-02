@@ -37,15 +37,25 @@
             <div class="filter">
                 <div class="input-block">
                     <label for="state">TIPO DE ENTIDADE</label>
-                    <p-dropdown 
+                    <!-- <p-dropdown 
                         [options]="ngoTypes" 
                         formControlName="selectedNgoType" 
                         styleClass="input-ng filters filters-right" 
                         [filter]="true"
                         [style]="{'width': '100%'}"
                         placeholder="Selecionar...">
-                    </p-dropdown>
+                    </p-dropdown> -->
+                    <p-multiSelect 
+                        [options]="ngoTypes" 
+                        styleClass="input-ng filters filters-right" 
+                        optionLabel="label"
+                        placeholder="Selecionar..." 
+                        [maxSelectedLabels]="1"
+                        selectedItemsLabel="{} selecionadas" 
+                        [style]="{'width': '100%'}"
+                        formControlName="selectedNgoType"></p-multiSelect>
                 </div>
+
             </div>
             <button class="button" id="button-filter" (click)="filterNgos()"><i class="pi pi-search" style="font-size: 1.5rem"></i></button>
         </form>
