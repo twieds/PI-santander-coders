@@ -22,19 +22,28 @@ public class Ong {
 	@Column
 	private String name;
 	
-	@Column
-	private String cnpj;
-	
 	@Column(columnDefinition="TEXT")
 	private String bio;
 	
 	@Column(columnDefinition="TEXT")
 	private String how_can_we_help;
 	
-	@Column(columnDefinition="TINYTEXT")
-	private String socials;
-	
 	@Embedded
 	private Location location;
-
+	
+	@Column
+	private Long ongType;
+	
+	@Column
+	private String whatsapp;
+	
+	@Column
+	private String facebook;
+	
+	@Column
+	private String instagram;
+	
+	@Column
+	private String contact_email;
+	
 }

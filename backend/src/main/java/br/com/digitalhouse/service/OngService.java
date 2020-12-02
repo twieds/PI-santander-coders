@@ -1,46 +1,80 @@
 package br.com.digitalhouse.service;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import br.com.digitalhouse.dto.OngDTO;
+import br.com.digitalhouse.mapper.OngMapper;
 import br.com.digitalhouse.model.Ong;
+import br.com.digitalhouse.repository.CityRepository;
 import br.com.digitalhouse.repository.OngRepository;
+import br.com.digitalhouse.repository.StateRepository;
+import br.com.digitalhouse.request.OngRequest;
 
 @Service
 public class OngService {
 	@Autowired
 	private OngRepository repository;
 	
+	@Autowired
+	private OngMapper mapper;
+	
+	@Autowired 
+	private StateRepository stateRepository;
+	
+	@Autowired 
+	private CityRepository cityRepository;
+	
 	@GetMapping
 	public List<Ong> getAllOngs() {
 		return repository.findAll();
 	}
 	
-	@GetMapping("/{id}")
-	public Ong getOngByID(@PathVariable Long id) {
-		return repository.findById(id).orElse(null);
+	public Optional<Ong> getOngByID(Long id) {
+		return repository.findById(id);
 	}
 	
-	@PostMapping
-	public void addOng(@RequestBody Ong ong) {
-		repository.save(ong);
+	@Transactional
+	public OngDTO addOng(OngRequest request) {
+		Ong ong = mapper.dtoRequestToModel(request);
+		
+		if (ong.getLocation().getCity().getId() == null) {
+			stateRepository.save(ong.getLocation().getCity().getState());
+			cityRepository.save(ong.getLocation().getCity());			
+		}
+		
+		return mapper.modelToDto(repository.save(ong));
 	}
 	
-	@DeleteMapping("/{id}")
+	@Transactional
 	public void deleteOngByID(@PathVariable Long id) {
-		repository.deleteById(id);
+		
+		try {
+			repository.deleteById(id);
+			repository.flush();
+		
+		} catch (EmptyResultDataAccessException e) {
+			//TODO: EXCEPTION DA ONG
+//			throw new DevNotFoundException(id);
+		}	
 	}
 	
-	@PutMapping("/{id}")
+	@Transactional
 	public void setOngByID(@PathVariable Long id, @RequestBody Ong ong) {
 
+	}
+	
+	@Transactional
+	public void setOngByID(Ong ong) {
+		repository.save(ong);
 	}
 }

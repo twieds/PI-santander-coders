@@ -1,6 +1,5 @@
 package br.com.digitalhouse.model;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
