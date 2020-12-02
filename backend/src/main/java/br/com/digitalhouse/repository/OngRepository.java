@@ -16,7 +16,7 @@ public interface OngRepository extends JpaRepository<Ong, Long>{
 			+ "where "
 			+ "(:city is null or o.location.city.id = :city)  "
 			+ "and (:state is null or o.location.city.state.id = :state) "
-			+ "and (o.ongTypeId in (:ongType) or o.ongTypeId is null)"
+			+ "and (o.ongTypeId in (:ongType))"
 			+ "group by o.id")
 	
 	List<Ong> findAll(Long city, Long state, Set<Long> ongType);

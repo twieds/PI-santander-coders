@@ -6,7 +6,7 @@ export interface NgoEntity {
     bio?: string;
     how_can_we_help?: string;
     location?: LocationEntity;
-    ongType?: number;
+    ongTypeId?: number;
     whatsapp?: string;
     facebook?: string;
     instagram?: string;

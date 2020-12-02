@@ -56,7 +56,7 @@ export class NgoSignUpComponent implements OnInit {
       this.form.controls.bio.setValue(response.bio)
       this.form.controls.how_can_we_help.setValue(response.how_can_we_help)
       this.form.controls.state.setValue(response.location.city.state.id)
-      this.form.controls.ongType.setValue(response.ongType)
+      this.form.controls.ongTypeId.setValue(response.ongTypeId)
       this.form.controls.whatsapp.setValue(response.whatsapp)
       this.form.controls.facebook.setValue(response.facebook)
       this.form.controls.instagram.setValue(response.instagram)
@@ -73,7 +73,7 @@ export class NgoSignUpComponent implements OnInit {
       how_can_we_help: [''],
       city: [''],
       state: [''],
-      ongType: [''],
+      ongTypeId: [''],
       whatsapp: [''],
       facebook: [''],
       instagram: [''],
@@ -108,7 +108,7 @@ export class NgoSignUpComponent implements OnInit {
         name: this.form.value.name,
         bio: this.form.value.bio,
         how_can_we_help: this.form.value.how_can_we_help,
-        ongType: this.form.value.ongType,
+        ongTypeId: this.form.value.ongTypeId,
         whatsapp: this.form.value.whatsapp,
         facebook: this.form.value.facebook,
         instagram: this.form.value.instagram,
