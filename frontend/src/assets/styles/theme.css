@@ -3752,7 +3752,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
   background: var(--color-primary);
   color: white;
   border: none;
-  border-radius: none;
+  border-radius: 0;
   
 }
 .p-menubar .p-menuitem-link {
@@ -3880,7 +3880,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
     width: 2rem;
     height: 2rem;
     color: #333333;
-    border-radius: none;
+    border-radius: 0;
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   }
   .p-menubar .p-menubar-button:hover {

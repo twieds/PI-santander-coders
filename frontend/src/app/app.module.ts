@@ -31,6 +31,7 @@ import { SuccessSignupComponent } from './dev/success-signup/success-signup.comp
 import { HeaderNavPrimaryComponent } from './headers/header-nav-primary/header-nav-primary.component';
 import {MenubarModule} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
+import { FooterComponent } from './template/footer/footer.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import {MenuItem} from 'primeng/api';
     NgoDetailComponent,
     HeaderNavComponent,
     SuccessSignupComponent,
-    HeaderNavPrimaryComponent
+    HeaderNavPrimaryComponent,
+    FooterComponent
     
   ],
   imports: [

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 @import url('assets/styles/theme.css');
 @import url('assets/styles/forms.css');
+@import url('assets/styles/filters.css');
 
 :root {
     --color-background: #f0f2f7;
@@ -13,7 +14,7 @@
     --color-text: #848484;
     --color-container-background: #FFFFFF;
     --color-divider: #DADEED;
-    font-size: 80%;
+    /* font-size: 80%; */
 }
 
 @font-face {
@@ -50,6 +51,7 @@
 body {
     background-color: var(--color-background);
     width: 100%;
+    background-image: url(assets/images/background/geometry2.png)
     /* display: flex; */
     /* align-items: center; */
     /* justify-content: center; */
@@ -159,3 +161,4 @@ h2 {
         padding: 2rem 2rem;
     }
 }
+

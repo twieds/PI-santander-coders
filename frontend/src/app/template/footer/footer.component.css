@@ -1,0 +1,15 @@
+#footer {
+    position: static;
+    bottom: 0;
+}
+
+p {
+    text-align: center; 
+    font-size: 80%;
+    color: var(--color-primary)
+}
+
+a {
+    text-decoration: none;
+    color: rgb(6, 92, 47);
+}
