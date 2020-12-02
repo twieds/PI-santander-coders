@@ -8,11 +8,14 @@ export class NgoMapper extends Mapper<NgoEntity, NgoModel> {
         return {
             id: param.id,
             name: param.name,
-            cnpj: param.cnpj,
             bio: param.bio,
             how_can_we_help: param.how_can_we_help,
-            socials: param.socials,
-            location: param.location
+            location: param.location,
+            ongType: param.ongType,
+            whatsapp: param.whatsapp,
+            facebook: param.facebook,
+            instagram: param.instagram,
+            contact_email: param.contact_email
         };
     }
 
@@ -20,11 +23,14 @@ export class NgoMapper extends Mapper<NgoEntity, NgoModel> {
         return {
             id: param.id,
             name: param.name,
-            cnpj: param.cnpj,
             bio: param.bio,
             how_can_we_help: param.how_can_we_help,
-            socials: param.socials,
-            location: param.location 
+            location: param.location,
+            ongType: param.ongType,
+            whatsapp: param.whatsapp,
+            facebook: param.facebook,
+            instagram: param.instagram,
+            contact_email: param.contact_email
         };
     }
 }

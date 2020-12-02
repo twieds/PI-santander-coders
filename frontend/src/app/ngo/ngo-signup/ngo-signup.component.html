@@ -1,56 +1,119 @@
-<div id="container">
-    <h2> SEUS DADOS </h2>
+<app-header-nav-primary></app-header-nav-primary>
+<!-- <header style="width: 100%; height: 100px; background-color: red;"> -->
+<!-- </header> -->
 
-    <form autocomplete="off"  [formGroup]="form">
-        <div class="input-block">
-            <label for="entity-name"> NOME DA ENTIDADE: </label>
-            <input formControlName="name" id="entity-name" required>
-
+<main>
+    <div id="container">
+        <h2> SEUS DADOS </h2>
+    
+        <form autocomplete="off"  [formGroup]="form">
+            <fieldset id="contact" class="fieldset-container">
+    
+                <div class="input-wrapper">
+                    <div class="input-block">
+                        <label for="entity-name"> Nome da entidade: </label>
+                        <input formControlName="name" id="entity-name" required>
+                    </div>
+        
+                    <div class="input-block">
+                        <label for="">Represento uma...</label>
+                        <p-dropdown 
+                            [options]="[]" 
+                            formControlName="state" 
+                            styleClass="input-ng" 
+                            [filter]="true"
+                            placeholder="Selecionar..."
+                            >
+                        </p-dropdown>
+                    </div>
+                </div>
+        
+                <div class="input-block">
+                    <label for="about-you">Nos conte a sua história:</label>
+                    <textarea formControlName="bio" id="about-you" placeholder="Queremos conhecer mais sobre sua tragetória, como tudo começou, o que você faz..."
+                        required></textarea>
+                </div>
+        
+                <div class="input-block">
+                    <label for="how-can-we-help">Como um dev pode te ajudar?</label>
+                    <textarea formControlName="how_can_we_help" id="how-can-we-help"
+                        placeholder="O que você precisa? Como nossa ajuda vai melhorar o seu dia a dia?" required></textarea>
+                </div>
+    
+                <div class="input-wrapper">
+                    <div class="input-block">
+                        <label for="state">Estado</label>
+                        <p-dropdown 
+                            [options]="states"
+                            formControlName="state" 
+                            styleClass="input-ng" 
+                            [filter]="true"
+                            placeholder="Selecionar estado"
+                            (onChange)="initializeCities(1)">
+                        </p-dropdown>
+                           
+                    </div>
+        
+                    <div class="input-block">
+                        <label for="city">Cidade</label>
+                        <p-dropdown 
+                            [options]="cities" 
+                            formControlName="city" 
+                            styleClass="input-ng" 
+                            [filter]="true"
+                            placeholder="Selecionar cidade">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </fieldset>
+    
+    
+            <fieldset id="contact" class="fieldset-container">
+                <h2> CONTATO </h2>
+    
+                <div class="input-wrapper">
+                    <div class="input-block">
+                        <label for="whatsapp">
+                            <span class="pi pi-phone"></span>
+                            Whatsapp <small> (somente números) </small>
+                        </label>
+                        <input formControlName="whatsapp" id="whatsapp" placeholder="(__) _____-____">
+                    </div>
+    
+                    <div class="input-block">
+                        <label for="contact_email">
+                            <span class="pi pi-envelope"></span>
+                            Email de contato
+                        </label>
+                        <input formControlName="contact_email" id="contact_email" placeholder="seuemail@mail.com">
+                    </div>
+                </div>
+    
+                <div class="input-wrapper">
+                    <div class="input-block">
+                        <label for="facebook">
+                            <span class="pi pi-facebook"></span>
+                            Facebook
+                        </label>
+                        <input formControlName="facebook" id="facebook" placeholder="https://www.facebook.com/usuario">
+                    </div>
+    
+                    <div class="input-block">
+                        <label for="instagram">
+                            <span class="pi pi-heart"></span>
+                            Instagram
+                        </label>
+                        <input formControlName="instagram" id="instagram" placeholder="https://www.instagram.com/in/usuario">
+                    </div>
+                </div>
+    
+            </fieldset>
+    
+        </form>
+    
+        <div class="buttons-wrapper">
+            <button class="button button-secondary" (click)="onCancel()">CANCELAR</button>
+            <button class="button button-primary" (click)="onSubmit()">SALVAR</button>
         </div>
-        <div class="input-wrapper">
-            <div class="input-block">
-                <label for="">CNPJ/CPF:</label>
-                <input formControlName="cnpj" id="cnpj" required>
-            </div>
-
-            <div class="input-block">
-                <label for="">SOU...</label>
-                <select name="type-of-entity" id="type-of-entity">
-                    <option value="1">ASSOCIAÇÃO SEM FINS LUCRATICOS</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="input-block">
-            <label for="about-you">NOS CONTE SUA HISTÓRIA:</label>
-            <textarea formControlName="bio" id="about-you" placeholder="Como tudo começou, o que você faz..."
-                required></textarea>
-        </div>
-
-        <div class="input-block">
-            <label for="how-can-we-help">COMO UM DEV PODE TE AJUDAR?</label>
-            <textarea formControlName="how_can_we_help" id="how-can-we-help"
-                placeholder="O que você precisa? Como nossa ajuda vai melhorar o seu dia a dia?" required></textarea>
-        </div>
-
-        <div class="input-block">
-            <label for="social-media"> REDES SOCIAIS: </label>
-            <input type="url" formControlName="socials" id="social-media" placeholder="Instagram, Facebook, LinkedIn...">
-        </div>
-
-        <div class="input-block">
-            <label for="doc"> Documentação: </label>
-            <input name="doc" id="doc" placeholder="C:/cnpj.pdf">
-
-        </div>
-        <div class="input-block">
-            <label for="location"> Localizacão </label>
-            <input name="location" id="location" placeholder="Onde você atua?">
-        </div>
-    </form>
-
-    <div class="buttons-wrapper">
-        <button class="button button-primary" (click)="onSubmit()">SALVAR</button>
-        <button class="button button-secondary" (click)="onCancel()">CANCELAR</button>
     </div>
-</div>
+</main>

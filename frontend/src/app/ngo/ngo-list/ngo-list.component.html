@@ -1,27 +1,64 @@
 <header>
-    <app-header-filtro></app-header-filtro>
+    <app-header-nav-primary></app-header-nav-primary>
+
+    <div class="filter-container">
+        <form class="filter-wrapper" [formGroup]="form">
+
+            <div class="filter">
+                <div class="input-block">
+                    <label for="state">ESTADO</label>
+                    <p-dropdown 
+                        [options]="states" 
+                        formControlName="selectedState" 
+                        styleClass="input-ng filters filters-left" 
+                        [filter]="true"
+                        [style]="{'width': '100%'}"
+                        placeholder="Selecionar..."
+                        (onChange)="initializeCities()">
+                    </p-dropdown>
+                </div>
+            </div>
+
+            <div class="filter">
+                <div class="input-block">
+                    <label for="state">CIDADE</label>
+                    <p-dropdown 
+                        [options]="cities" 
+                        formControlName="selectedCity" 
+                        styleClass="input-ng filters" 
+                        [filter]="true"
+                        [style]="{'width': '100%'}"
+                        placeholder="Selecionar...">
+                    </p-dropdown>
+                </div>
+            </div>
+
+
+            <div class="filter">
+                <div class="input-block">
+                    <label for="state">TIPO DE ENTIDADE</label>
+                    <p-dropdown 
+                        [options]="ngoTypes" 
+                        formControlName="selectedNgoType" 
+                        styleClass="input-ng filters filters-right" 
+                        [filter]="true"
+                        [style]="{'width': '100%'}"
+                        placeholder="Selecionar...">
+                    </p-dropdown>
+                </div>
+            </div>
+            <button class="button" id="button-filter" (click)="filterNgos()"><i class="pi pi-search" style="font-size: 1.5rem"></i></button>
+        </form>
+    </div>
 </header>
 
 <main>
     <div id="container">
-        <ng-container *ngIf=" (ngo$ | async) as ngos; else loadingError">
-            <ng-container *ngFor="let ngo of ngos">
-                <app-ngo-detail [ngo]="ngo"></app-ngo-detail >
-            </ng-container>
+        <ng-container *ngFor="let ngo of ngos">
+            <app-ngo-detail [ngo]="ngo"></app-ngo-detail >
         </ng-container>
     </div>
 </main>
 
 <footer>
-
 </footer>
-<ng-template #loadingError>
-    <div *ngIf="error$ | async; else loading">
-        Desculpe, estamos com problemas :( <br>
-        Tente novamente mais tarde.
-    </div>
-
-    <ng-template #loading>
-        <span>Carregando devs...</span>
-    </ng-template>
-</ng-template>

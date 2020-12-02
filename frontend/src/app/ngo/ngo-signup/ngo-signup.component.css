@@ -1,5 +1,6 @@
-.tags-wrapper{
-    margin: 1rem 0rem 3rem 0rem;
+.fieldset-container:not(:last-child) {
+    border-bottom: 1px solid lightgray;
+    padding: 0.5rem 0;
 }
 
 #container h2 {

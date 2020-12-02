@@ -1,20 +1,14 @@
-interface UserAuthModel {
-    email?: string;
-    password?: string;
-}
+import { LocationModel } from 'src/app/core/location/location-model';
 
-interface LocationModel {
-    city?: string;
-    district?: string;
-    state?: string;
-}
-
-export interface NgoModel {
+export interface NgoModel{
     id?: number;
     name?: string;
-    cnpj?: string;
     bio?: string;
     how_can_we_help?: string;
-    socials?: string;
-    location?: LocationModel; 
+    location?: LocationModel;
+    ongType?: number;
+    whatsapp?: string;
+    facebook?: string;
+    instagram?: string;
+    contact_email?: string;
 }

@@ -1,20 +1,14 @@
-interface UserAuthEntity {
-    email?: string;
-    password?: string;
-}
-
-interface LocationEntity {
-    city?: string;
-    district?: string;
-    state?: string;
-}
+import { LocationEntity } from 'src/app/core/location/location-entity';
 
 export interface NgoEntity {
     id?: number;
     name?: string;
-    cnpj?: string;
     bio?: string;
     how_can_we_help?: string;
-    socials?: string;
-    location?: LocationEntity; 
+    location?: LocationEntity;
+    ongType?: number;
+    whatsapp?: string;
+    facebook?: string;
+    instagram?: string;
+    contact_email?: string;
 }
