@@ -1,6 +1,7 @@
-.nav {
-    width: 100%;
-    background-color: var(--color-primary); 
-    height: 3rem;
+.login-logout {
+    margin-right: 0.7rem;
     color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
 }

@@ -1,1 +1,6 @@
-<p-menubar [model]="items"></p-menubar>
+<p-menubar [model]="items" styleClass="teste">
+    <ng-template pTemplate="end">        
+        <a routerLink="/home"class="login-logout">ENTRAR</a>
+        <!-- <a routerLink="/home"><i class="pi pi-power-off" style="color:white; margin-right: 0.5rem;"></i></a> -->
+    </ng-template>
+</p-menubar>

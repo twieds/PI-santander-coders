@@ -1,8 +1,9 @@
+<!-- <app-header-nav></app-header-nav> -->
+<app-header-nav-primary></app-header-nav-primary>
+
 <header>
-    <app-header-nav></app-header-nav>
 
     <div id="filters">
-
 
         <form id="search-devs" [formGroup]="form">
 
@@ -12,7 +13,7 @@
                     <p-dropdown 
                         [options]="states" 
                         formControlName="selectedState" 
-                        styleClass="input-ng" 
+                        styleClass="input-ng filters filters-left" 
                         [filter]="true"
                         [style]="{'width': '100%'}"
                         placeholder="Selecionar..."
@@ -27,7 +28,7 @@
                     <p-dropdown 
                         [options]="cities" 
                         formControlName="selectedCity" 
-                        styleClass="input-ng" 
+                        styleClass="input-ng filters" 
                         [filter]="true"
                         [style]="{'width': '100%'}"
                         placeholder="Selecionar...">
@@ -38,7 +39,7 @@
             <div class="filter">
                 <div class="input-block">
                     <label for="state">QUER PRATICAR</label>
-                    <p-multiSelect [options]="skills" styleClass="input-ng" optionLabel="label"
+                    <p-multiSelect [options]="skills" styleClass="input-ng filters" optionLabel="label"
                         placeholder="Selecionar..." [maxSelectedLabels]="1"
                         selectedItemsLabel="{} selecionadas" 
                         [style]="{'width': '100%'}"
@@ -49,14 +50,14 @@
             <div class="filter">
                 <div class="input-block">
                     <label for="state">JÁ SABE</label>
-                    <p-multiSelect [options]="skills" styleClass="input-ng" optionLabel="label"
+                    <p-multiSelect [options]="skills" styleClass="input-ng filters filters-right" optionLabel="label"
                         placeholder="Selecionar..." [maxSelectedLabels]="1"
                         selectedItemsLabel="{} selecionadas" 
                         [style]="{'width': '100%'}"
                         formControlName="selectedSkills"></p-multiSelect>
                 </div>
             </div>
-            <button class="button" id="button-filter" (click)="filterDevs()">Filtrar</button>
+            <button class="button" id="button-filter" (click)="filterDevs()"><i class="pi pi-search" style="font-size: 1.5rem"></i></button>
         </form>
     </div>
 </header>
@@ -64,7 +65,7 @@
 <main>
     <div id="container">
         <ng-container *ngFor="let dev of devs">
-            <app-dev-detail [dev]="dev"></app-dev-detail>
+            <app-dev-detail [dev]="dev" [style]="{'width': '100%'}"></app-dev-detail>
         </ng-container>
     </div>
 </main>

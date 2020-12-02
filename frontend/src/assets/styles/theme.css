@@ -936,6 +936,7 @@ p-listbox.ng-dirty.ng-invalid > .p-listbox {
   border-bottom: 3px solid var(--color-accent);
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 3px;
+  font-size: 0.9rem;
 }
 .p-multiselect:not(.p-disabled):hover {
   border-color:var(--color-accent-focus);
@@ -3748,10 +3749,11 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
 
 .p-menubar {
   padding: 0.5rem;
-  background: #ffffff;
-  color: #333333;
-  border: 1px solid #c8c8c8;
-  border-radius: 3px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: none;
+  
 }
 .p-menubar .p-menuitem-link {
   padding: 0.857rem;
@@ -3759,6 +3761,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
   border-radius: 0;
   transition: background-color 0.2s, box-shadow 0.2s;
   user-select: none;
+  
 }
 .p-menubar .p-menuitem-link .p-menuitem-text {
   color: #333333;
@@ -3782,78 +3785,84 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
 .p-menubar .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {
   color: #333333;
 }
+
 .p-menubar .p-menuitem-link:focus {
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: inset 0 0 0 0.2rem #8dcdff;
+  box-shadow: none;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
   padding: 0.857rem;
   color: #333333;
-  border-radius: 3px;
+  border-radius: 0.2rem;
   transition: background-color 0.2s, box-shadow 0.2s;
   user-select: none;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
-  color: #333333;
+  font-size: 1rem;
+  color: white;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {
-  color: #333333;
+  color: white;
   margin-right: 0.5rem;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon {
-  color: #333333;
+  color: white;
   margin-left: 0.5rem;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
-  background: #eaeaea;
+  border-radius: 0.2rem;
+  background-color: transparent;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
-  color: #333333;
+  color: var(--color-accent);
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
-  color: #333333;
+  color: var(--color-accent);
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {
-  color: #333333;
+  color: var(--color-accent);
 }
 .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus {
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: inset 0 0 0 0.2rem #8dcdff;
+  box-shadow: none;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link,
 .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover {
-  background: #eaeaea;
+  background: transparent;
 }
 .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text,
 .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
-  color: #333333;
+  color: var(--color-accent);
 }
 .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-icon,
 .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
-  color: #333333;
+  color: var(--color-accent);
 }
 .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon,
 .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon {
-  color: #333333;
+  color: var(--color-accent);
 }
 .p-menubar .p-submenu-list {
   padding: 0;
-  background: #ffffff;
-  border: 1px solid #c8c8c8;
+  background: var(--color-background);
+  border: none;
   box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.16);
   width: 12.5rem;
+  border-radius: 0.3rem;
 }
 .p-menubar .p-submenu-list .p-menu-separator {
   border-top: 1px solid #d8dae2;
   margin: 0;
 }
+
 .p-menubar .p-submenu-list .p-submenu-icon {
   font-size: 0.875rem;
 }
 .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link {
-  background: #eaeaea;
+  background: var(--color-accent);
+  border-radius: 0.3rem;
 }
 .p-menubar .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text {
   color: #333333;
@@ -3871,7 +3880,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
     width: 2rem;
     height: 2rem;
     color: #333333;
-    border-radius: 50%;
+    border-radius: none;
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   }
   .p-menubar .p-menubar-button:hover {
@@ -3881,7 +3890,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
   .p-menubar .p-menubar-button:focus {
     outline: 0 none;
     outline-offset: 0;
-    box-shadow: 0 0 0 0.2rem #8dcdff;
+    box-shadow: none;
   }
   .p-menubar .p-menubar-root-list {
     position: absolute;
@@ -3935,7 +3944,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus {
     outline: 0 none;
     outline-offset: 0;
-    box-shadow: inset 0 0 0 0.2rem #8dcdff;
+    box-shadow: none;
   }
   .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link > .p-submenu-icon {
     margin-left: auto;

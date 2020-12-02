@@ -4,7 +4,7 @@
 @import url('assets/styles/forms.css');
 
 :root {
-    --color-background: #DADEED;
+    --color-background: #f0f2f7;
     --color-primary: #87B6A6;
     --color-primary-darker: #5a8688;
     --color-accent: #C2EFE0;
@@ -156,6 +156,6 @@ h2 {
 
     #container {
         width: 90vw;
-        padding: 2rem 3.5rem;
+        padding: 2rem 2rem;
     }
 }
