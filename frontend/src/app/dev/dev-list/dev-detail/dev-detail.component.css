@@ -36,8 +36,13 @@ h3 {
     border-radius: 0rem 0rem 1rem 1rem;
     padding: 1rem;
     text-align: center;
+    transition: color 0.2;
 }
 
+.go-to-profile a:hover {
+    color: var(--color-accent-focus);
+    font-size: 102%;
+}
 
 .dev-wrapper img {
     height: 6rem;
