@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import br.com.digitalhouse.dto.OngDTO;
 import br.com.digitalhouse.filter.OngFilter;
+import br.com.digitalhouse.filter.ProjectFilter;
 import br.com.digitalhouse.mapper.OngMapper;
 import br.com.digitalhouse.model.Ong;
 import br.com.digitalhouse.model.OngType;
+import br.com.digitalhouse.model.Project;
 import br.com.digitalhouse.model.Skill;
 import br.com.digitalhouse.repository.CityRepository;
 import br.com.digitalhouse.repository.OngRepository;
@@ -65,6 +67,10 @@ public class OngService {
 	
 	public Optional<Ong> getOngByID(Long id) {
 		return repository.findById(id);
+	}
+	
+	public List<Project> getOngProjects(@PathVariable Long id) {
+		return repository.getOngProjects(id);
 	}
 	
 	@Transactional

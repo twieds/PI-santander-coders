@@ -1,8 +1,11 @@
+import { SkillEntity } from 'src/app/core/skill/skill-entity';
+import { NgoEntity } from 'src/app/ngo/core/ngo-entity';
+
 export interface ProjectEntity {
     id?: number;
-    id_ngo?: string;
+    ong?: NgoEntity;
     title?: string;
     description?: string;
     deadline?: Date;
-    category?: number;
+    project_skills?: SkillEntity[];
 } 

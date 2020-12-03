@@ -29,7 +29,10 @@
                     <ng-container *ngFor="let project of projects">
 
                         <p-accordionTab header="{{ project.title | uppercase }}">
-                            {{ project.title }} 
+                            {{ project.description }} 
+                            <p>
+                                <a class="project-link" routerLink="/project-entry/{{ project.id }}"> VER PROJETO </a>
+                            </p>
                         </p-accordionTab>
                         
                     </ng-container>

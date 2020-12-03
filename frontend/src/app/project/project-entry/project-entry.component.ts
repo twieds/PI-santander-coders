@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectModel } from '../core/project-model';
+import { ProjectRepository } from '../core/project-repository';
 import { ProjectService } from '../core/project.service';
 
 @Component({
@@ -14,10 +15,12 @@ import { ProjectService } from '../core/project.service';
 // TODO: add methods put and delete
 export class ProjectEntryComponent implements OnInit {
   project: ProjectModel;
+  project_skills: string;
+  skills: string;
 
   constructor(
     private route: ActivatedRoute,
-    private service: ProjectService,
+    private repository: ProjectRepository,
     private titleService: Title
   ) { }
 
@@ -32,10 +35,23 @@ export class ProjectEntryComponent implements OnInit {
   getProject(): void {
     const id = +this.route.snapshot.paramMap.get('id');
 
-    this.service.getProjectByID(id).subscribe(project => {
+    this.repository.getProjectById(id).subscribe(project => {
       this.project = project;
       this.setTitle(project.title);
-    }
-    );
+      this.initializeSkills(project.project_skills);
+    });
+  }
+
+  initializeSkills(skills): void{
+    let aux = [];
+
+    skills.forEach(element => {
+      aux.push(element.description);
+    });
+    this.skills = aux.join(", ");
+  }
+
+  formatDate() {
+
   }
 }

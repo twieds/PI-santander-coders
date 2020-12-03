@@ -1,26 +1,74 @@
-.tags-wrapper{
-    margin: 1rem 0rem 3rem 0rem;
-}
-
-#container h2 {
-    padding: 0.5rem 0rem 2rem 0rem;
-}
-
 @media (min-width: 700px) {
-    .buttons-wrapper {
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .buttons-wrapper .button {
-        width: 48.5%;
-    }
-    
-    .input-wrapper {
-        display: flex;
-        column-gap: 20px;
-        justify-content: space-between;
+    #container {
+        padding: 2rem 4rem;
+        width: 60vw;
     }
 
+    .icon {
+        margin: 0.5rem;
+        height: 3.5rem;
+    }
+    
+    .icon:hover{
+        height: 3.6rem;
+    }
+}
+
+.title {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+h4 {
+    color: var(--color-text-label);
+    font-weight: 450;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+.title h2 {
+    padding-bottom: 0.5rem;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+}
+
+
+.title span {
+    font-size: 90%;
+}
+
+.field-group:not(:last-child) {
+    padding-bottom: 1rem;
+}
+
+.field-group b {
+    color: var(--color-text-label);
+    font-weight: 450;
+}
+
+.icons-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.icon {
+    margin: 0.5rem;
+    height: 3rem;
+}
+
+.icon:hover{
+    height: 3.1rem;
+}
+
+section:not(:last-child) {
+    border-bottom: 1px solid lightgray;
+    padding: 1rem 0;
 }
 

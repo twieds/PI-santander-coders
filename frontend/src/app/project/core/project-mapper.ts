@@ -7,22 +7,22 @@ export class ProjectMapper extends Mapper<ProjectEntity, ProjectModel> {
     mapFrom(param: ProjectEntity): ProjectModel {
         return {
             id: param.id,
-            id_ngo: param.id_ngo,
+            ong: param.ong,
             title: param.title,
             description: param.description,
             deadline: param.deadline,
-            category: param.category
+            project_skills: param.project_skills
         };
     }
 
     mapTo(param: ProjectModel): ProjectEntity {
         return {
             id: param.id,
-            id_ngo: param.id_ngo,
+            ong: param.ong,
             title: param.title,
             description: param.description,
             deadline: param.deadline,
-            category: param.category
+            project_skills: param.project_skills
         };
     }
 }

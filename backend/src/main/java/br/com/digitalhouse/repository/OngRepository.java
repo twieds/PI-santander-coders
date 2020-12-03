@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import br.com.digitalhouse.model.Ong;
+import br.com.digitalhouse.model.Project;
 
 @Repository
 public interface OngRepository extends JpaRepository<Ong, Long>{
@@ -20,5 +21,11 @@ public interface OngRepository extends JpaRepository<Ong, Long>{
 			+ "group by o.id")
 	
 	List<Ong> findAll(Long city, Long state, Set<Long> ongType);
+	
+	@Query("from Project p "
+			+ "where "
+			+ "(p.ong.id = :ongID)  "
+			+ "group by p.id")	
+	List<Project> getOngProjects(Long ongID);
 
 }

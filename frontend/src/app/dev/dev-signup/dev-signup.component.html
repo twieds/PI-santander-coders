@@ -62,9 +62,14 @@
 
             <div class="input-block">
                 <label for="practice">Quero praticar...</label>
-                <p-multiSelect formControlName="selectedPracticeSkills" [options]="skills" styleClass="input-ng"
-                    optionLabel="description" placeholder="Selecionar competências..."
-                    selectedItemsLabel="{} competências selecionadas"></p-multiSelect>
+                <p-multiSelect 
+                    formControlName="selectedPracticeSkills" 
+                    [options]="skills" 
+                    styleClass="input-ng"
+                    optionLabel="description" 
+                    placeholder="Selecionar competências..."
+                    selectedItemsLabel="{} competências selecionadas">
+                </p-multiSelect>
             </div>
 
             <div class="input-block">

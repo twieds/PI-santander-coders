@@ -1,7 +1,7 @@
 <header>
     <app-header-nav-primary></app-header-nav-primary>
 
-    <!-- <div class="filter-container">
+    <div class="filter-container">
         <form class="filter-wrapper" [formGroup]="form">
 
             <div class="filter">
@@ -23,7 +23,7 @@
                 <div class="input-block">
                     <label for="state">CIDADE</label>
                     <p-dropdown 
-                        [options]="[]" 
+                        [options]="cities" 
                         formControlName="selectedCity" 
                         styleClass="input-ng filters" 
                         [filter]="true"
@@ -36,41 +36,28 @@
 
             <div class="filter">
                 <div class="input-block">
-                    <label for="state">JÁ SABE</label>
-                    <p-multiSelect [options]="skills" styleClass="input-ng filters filters-right" optionLabel="label"
-                        placeholder="Selecionar..." [maxSelectedLabels]="1"
+                    <label for="state">PRECISANDO DE</label>
+                    <p-multiSelect [options]="skills" 
+                        styleClass="input-ng filters filters-right" 
+                        optionLabel="label"
+                        placeholder="Selecionar..." 
+                        [maxSelectedLabels]="1"
                         selectedItemsLabel="{} selecionadas" 
                         [style]="{'width': '100%'}"
-                        formControlName="selectedSkills"></p-multiSelect>
+                        formControlName="selectedSkills">
+                    </p-multiSelect>
                 </div>
             </div>
-            <button class="button" id="button-filter" (click)="filterDevs()"><i class="pi pi-search" style="font-size: 1.5rem"></i></button>
+            <button class="button" id="button-filter" (click)="filterProjects()"><i class="pi pi-search" style="font-size: 1.5rem"></i></button>
         </form>
-    </div> -->
+    </div>
 </header>
 
 <main>
     <div id="container">
-        <ng-container *ngIf=" (projects$ | async) as projects; else loadingError">
-            <ng-container *ngFor="let project of projects">
-
-                <app-project-detail [project]="project"></app-project-detail>
-            </ng-container>
+        <ng-container *ngFor="let project of projects">
+            <app-project-detail [project]="project"></app-project-detail>
         </ng-container>
     </div>
 </main>
 
-<footer>
-
-</footer>
-
-<ng-template #loadingError>
-    <div *ngIf="error$ | async; else loading">
-        Desculpe, estamos com problemas :( <br>
-        Tente novamente mais tarde.
-    </div>
-
-    <ng-template #loading>
-        <span>Carregando devs...</span>
-    </ng-template>
-</ng-template>

@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.digitalhouse.dto.OngDTO;
 import br.com.digitalhouse.filter.OngFilter;
+import br.com.digitalhouse.filter.ProjectFilter;
 import br.com.digitalhouse.model.Ong;
+import br.com.digitalhouse.model.Project;
 import br.com.digitalhouse.request.OngRequest;
 import br.com.digitalhouse.service.OngService;
 
@@ -37,6 +39,13 @@ public class OngController {
 	public List<Ong> getAllOngs(OngFilter filter) {
 		return service.getAllOngs(filter);
 	}
+	
+	
+	@GetMapping("/{id}/projects")
+	public List<Project> getOngProjects(@PathVariable Long id) {
+		return service.getOngProjects(id);
+	}
+
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Ong> getOngByID(@PathVariable Long id) {

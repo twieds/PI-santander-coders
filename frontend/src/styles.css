@@ -158,6 +158,7 @@ h2 {
 
     #container {
         width: 90vw;
+        /* width: 60vw; */
         padding: 2rem 2rem;
     }
 }

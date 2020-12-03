@@ -1,46 +1,84 @@
 package br.com.digitalhouse.service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
+import br.com.digitalhouse.dto.ProjectDTO;
+import br.com.digitalhouse.exception.DevNotFoundException;
+import br.com.digitalhouse.filter.ProjectFilter;
+import br.com.digitalhouse.mapper.ProjectMapper;
 import br.com.digitalhouse.model.Project;
+import br.com.digitalhouse.model.Skill;
 import br.com.digitalhouse.repository.ProjectRepository;
+import br.com.digitalhouse.repository.SkillRepository;
+import br.com.digitalhouse.request.ProjectRequest;
 
 @Service
 public class ProjectService {
 	@Autowired
 	private ProjectRepository repository;
-	
-	@GetMapping
-	public List<Project> getAllProjects() {
-		return repository.findAll();
-	}
-	
-	@GetMapping("/{id}")
-	public Project getProjectByID(@PathVariable Long id) {
-		return repository.findById(id).orElse(null);
-	}
-	
-	@PostMapping
-	public void addProject(@RequestBody Project project) {
-		repository.save(project);
-	}
-	
-	@DeleteMapping("/{id}")
-	public void deleteProjectByID(@PathVariable Long id) {
-		repository.deleteById(id);
-	}
-	
-	@PutMapping("/{id}")
-	public void setProjectByID(@PathVariable Long id, @RequestBody Project project) {
 
+	@Autowired
+	private SkillRepository skillRepository;
+
+	@Autowired
+	private ProjectMapper mapper;
+
+	@GetMapping
+	public List<Project> getAllProjects(ProjectFilter filter) {
+		
+		List<Skill> skills = skillRepository.findAll();
+		Set<Long> skillsID = new HashSet<Long>();
+		
+		
+		if (filter.getProjectSkills() == null) {
+
+			for (Skill skill : skills) {
+				skillsID.add(skill.getId());
+			}
+
+			filter.setProjectSkills(skillsID);
+		}
+
+		return repository.findAll(filter.getCity(), filter.getState(), filter.getProjectSkills());
+	}
+
+	public Optional<Project> getProjectById(Long id) {
+		return repository.findById(id);
+	}
+	
+
+	@Transactional
+	public ProjectDTO addProject(ProjectRequest request) {
+
+		Project project = mapper.dtoRequestToModel(request);
+		return mapper.modelToDto(repository.save(project));
+	}
+
+	
+	@Transactional
+	public void deleteProjectByID(Long id) {
+
+		try {
+			repository.deleteById(id);
+			repository.flush();
+
+		} catch (EmptyResultDataAccessException e) {
+			throw new DevNotFoundException(id);
+		}
+	}
+
+	@Transactional
+	public void setProjectById(Project project) {
+		repository.save(project);
 	}
 }

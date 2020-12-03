@@ -1,34 +1,60 @@
+<app-header-nav-primary></app-header-nav-primary>
+
 <ng-container *ngIf="project">
     <div id="container">
-        <h2> {{project.title | uppercase }} </h2>
-    
-        <form>    
-            <div class="input-wrapper">
-                <div class="input-block">
-                    <label for="">PRECISAMOS DE...</label>
-                    <select name="type-of-project" id="type-of-project">
-                        <option disabled selected value="1">DESENVOLVIMENTO WEB</option>
-                        <option disabled value="2">DESENVOLVIMENTO DESKTOP</option>
-                        <option disabled value="3">DESENVOLVIMENTO ANDROID</option>
-                        <option disabled value="3">DESENVOLVIMENTO iOS</option>
-                    </select>
-                </div>
-    
-                <div class="input-block">
-                    <label for="">ATÉ</label>
-                    <input type="date" value={{project.deadline}} id="project-deadline" readonly>
-                </div>
-            </div>
-    
-            <div class="input-block">
-                <label for="project-description">DESCRIÇÃO DO PROJETO: </label>
-                <textarea id="project-description" readonly> {{project.description}} </textarea>
-            </div>
-        </form>
-    
-        <div class="buttons-wrapper">
-            <button class="button button-primary">QUERO AJUDAR</button>
-            <button class="button button-secondary" routerLink="/project-list">CANCELAR</button>
+        <div class="title">
+            <h2 id="dev"> {{ project.title | uppercase}} </h2>
+            <span> {{ project.ong.location.city.city_name }}, {{ project.ong.location.city.state.state_name }} </span> <br>
         </div>
+
+        <section>
+            <div class="field-group">
+                <b> ONG: </b>
+                <span> <a href="http://" target="_blank" rel="noopener noreferrer"> {{ project.ong.name }} </a>  </span>
+                <p> </p>
+            </div>
+
+            <div class="field-group">
+                <b> Precisamos de: </b>
+                <span> {{ skills }} </span>
+            </div>
+        </section>
+
+        <section>
+            <div class="field-group">
+                <h4> Descrição </h4>
+                <p> {{ project.description }} </p>
+            </div>
+        </section>
+
+        <section>
+            <h2> ENTRAR EM CONTATO COM A ONG </h2>
+            <div class="icons-wrapper">
+
+                <ng-container *ngIf="project.ong.whatsapp">
+                    <a href="https://api.whatsapp.com/send?1=pt_br&phone=55{{ project.ong.whatsapp }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/whatsapp.svg" alt="whatsapp">
+                    </a>
+                </ng-container>
+
+                <ng-container *ngIf="project.ong.facebook">
+                    <a href="{{ project.ong.facebook }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/facebook.svg" alt="facebook">
+                    </a>
+                </ng-container>
+
+                <ng-container *ngIf="project.ong.contact_email">
+                    <a href="mailto:{{ project.ong.contact_email }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/email.svg" alt="email">
+                    </a>
+                </ng-container>
+
+                <ng-container *ngIf="project.ong.instagram">
+                    <a href="{{ project.ong.instagram }}" target="_blank">
+                        <img class="icon" src="../../../assets/images/icons/instagram.svg" alt="instagram">
+                    </a>
+                </ng-container>
+            </div>
+        </section>
     </div>
 </ng-container>

@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { NgoTypeRepository } from 'src/app/core/ngotype/ngotype-repository';
 import { ProjectModel } from 'src/app/project/core/project-model';
+import { ProjectRepository } from 'src/app/project/core/project-repository';
 import { NgoModel } from '../core/ngo-model';
 import { NgoRepository } from '../core/ngo-repository';
 
@@ -15,7 +16,7 @@ export class NgoProfileComponent implements OnInit {
 
   ngo: NgoModel;
   ngoTypeDescription: string;
-  projects: any[] = [];
+  projects: ProjectModel[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -51,10 +52,9 @@ export class NgoProfileComponent implements OnInit {
   }
 
   getProjects() {
-    let project: ProjectModel;
-    this.projects.push({id: 1, title: 'projeto 1'});
-    this.projects.push({id: 2, title: 'projeto 2'});
-    this.projects.push({id: 3, title: 'projeto 3'});
+    this.repository.getOngProjects(1).subscribe(project => {
+      this.projects.push(project);
+    })
 
   }
 

@@ -1,45 +1,56 @@
 a {
     text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 600;
 }
 
-.projeto-wrapper {
-    margin-bottom: 1.8rem;
+small {
+    font-size: 0.9rem;
+}
+
+p {
+    font-size: 95%;
+}
+
+h3 {
+    padding: 0;
+}
+
+.wrapper {
+    margin-bottom: 1rem;
     border: solid 2px #ededed;
     border-radius: 1rem;
 }
 
-.projeto-wrapper::after {
-    content:'';
-    width: 100%;
-    display: block;
-    height: 1px;    
+.info {
+    padding: 1.5rem 0 0rem 2rem;
 }
 
-.text-block {
-    padding-left: 1rem;
+.skills {
+    padding: 0.5rem 0 1rem 2rem;
 }
 
-.text-block h3 {        
-    color: var(--color-text-label);
-    padding-top: 0.7rem;
-}
-
-
-.info-block {
+.go-to-profile {
     background-color: #F9F9FA;
-    padding: 1rem;
-    margin-top: 1rem;
+    border-top: 1px solid #DADEED;
     border-radius: 0rem 0rem 1rem 1rem;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    transition: color 0.2;
 }
 
-.info-block .project-info span {
-    line-height: 2.2rem;
+.go-to-profile a:hover {
+    color: var(--color-accent-focus);
+    font-size: 102%;
 }
 
-.info-block .project-info .tags {
-    padding-top: 1rem;
+.dev-wrapper img {
+    height: 6rem;
+    padding-right: 1.5rem;
+}
+
+@media (min-width: 700px) {
+    .dev-wrapper {
+        padding: 1.5rem 0 1.5rem 0;
+    }
 }

@@ -25,7 +25,8 @@ const routes: Routes = [
   { path: 'dev-signup-complete',component: SuccessSignupComponent},
   { path: 'dev-profile/:id',component: DevProfileComponent},
 
-  { path: 'add-project', component: AddProjectComponent },
+  { path: ':id-ong/add-project', component: AddProjectComponent },
+  { path: ':id-ong/add-project/:id', component: AddProjectComponent },
   { path: 'project-list', component: ProjectListComponent },
   { path: 'project-entry/:id',component: ProjectEntryComponent},
 
