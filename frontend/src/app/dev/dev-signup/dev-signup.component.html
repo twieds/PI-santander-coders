@@ -18,8 +18,7 @@
 
             <div class="input-block">
                 <label for="biography">Biografia</label>
-                <textarea id="biography" formControlName="bio" placeholder="Nos conte um pouco sobre você...">
-            </textarea>
+                <textarea id="biography" formControlName="bio" placeholder="Nos conte um pouco sobre você..."></textarea>
             </div>
 
             <div class="input-wrapper">
@@ -33,12 +32,6 @@
                         placeholder="Selecionar estado"
                         (onChange)="initializeCities(1)">
                     </p-dropdown>
-
-                    <!-- <select formControlName="state" id="state" (change)="initializeCities()">
-                        <option *ngFor="let state of states" [value]="state.value">
-                            {{ state.label }}
-                        </option>
-                    </select> -->
                 </div>
 
                 <div class="input-block">
@@ -54,9 +47,7 @@
             </div>
 
         </fieldset>
-        <!-- FIM DA AREA DE DADOS PESSOAIS  -->
 
-        <!-- INICIO DA AREA DE COMPETENCIAS  -->
         <fieldset id="education" class="fieldset-container">
             <h2> COMPETÊNCIAS </h2>
 
@@ -74,16 +65,16 @@
 
             <div class="input-block">
                 <label for="skilled-at">Sou bom em...</label>
-                <p-multiSelect formControlName="selectedSkills" [options]="skills" styleClass="input-ng"
-                    optionLabel="description" placeholder="Selecionar competências..."
-                    selectedItemsLabel="{} competências selecionadas"></p-multiSelect>
+                <p-multiSelect 
+                    formControlName="selectedSkills" 
+                    [options]="skills" styleClass="input-ng"
+                    optionLabel="description" 
+                    placeholder="Selecionar competências..."
+                    selectedItemsLabel="{} competências selecionadas">
+                </p-multiSelect>
             </div>
-
-
-            <!-- FIM DA AREA DE COMPETENCIAS  -->
         </fieldset>
 
-        <!-- INICIO DA AREA DE HISTÓRICO ACADEMICO  -->
         <fieldset id="contact" class="fieldset-container">
             <h2> CONTATO </h2>
 
@@ -93,7 +84,7 @@
                         <span class="pi pi-phone"></span>
                         Whatsapp <small> (somente números) </small>
                     </label>
-                    <input formControlName="whatsapp" id="whatsapp" placeholder="">
+                    <input formControlName="whatsapp" id="whatsapp" placeholder="(__)_____-____">
                 </div>
 
                 <div class="input-block">
@@ -101,7 +92,7 @@
                         <span class="pi pi-envelope"></span>
                         Email de contato
                     </label>
-                    <input formControlName="contact_email" id="contact_email">
+                    <input formControlName="contact_email" id="contact_email" placeholder="user@email.com">
                 </div>
             </div>
 
@@ -111,7 +102,7 @@
                         <span class="pi pi-github"></span>
                         GitHub
                     </label>
-                    <input formControlName="github" id="github" placeholder="github.com/usuario">
+                    <input formControlName="github" id="github" placeholder="http://www.github.com/usuario">
                 </div>
 
                 <div class="input-block">
@@ -119,17 +110,17 @@
                         <span class="pi pi-briefcase"></span>
                         LinkedIn
                     </label>
-                    <input formControlName="linkedin" id="linkedin" placeholder="linkedin.com/in/usuario">
+                    <input formControlName="linkedin" id="linkedin" placeholder="http://www.linkedin.com/in/usuario">
                 </div>
             </div>
 
         </fieldset>
-        <!-- FIM DA AREA DE HISTÓRICO ACADEMICO  -->
+
     </form>
 
     <div class="buttons-wrapper">
-        <button class="button button-primary" (click)="onSubmit()">{{ op ? "CADASTRAR" : "ATUALIZAR"}}</button>
         <button class="button button-secondary" (click)="onCancel()">CANCELAR</button>
+        <button class="button button-primary" (click)="onSubmit()">{{ op ? "CADASTRAR" : "ATUALIZAR"}}</button>
     </div>
 
 </div>

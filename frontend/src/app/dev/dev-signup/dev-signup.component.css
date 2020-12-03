@@ -1,3 +1,10 @@
+@media (min-width: 700px) {
+    #container {
+        padding: 2rem 4rem;
+        width: 60vw;
+    }
+}
+
 .fieldset-container:not(:last-child) {
     border-bottom: 1px solid lightgray;
     padding: 0.5rem 0;

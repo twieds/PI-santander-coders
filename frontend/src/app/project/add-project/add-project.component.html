@@ -4,12 +4,12 @@
     <h2>CADASTRO DO PROJETO</h2>
 
     <form autocomplete="off"  [formGroup]="form">
+        <div class="input-wrapper">
         <div class="input-block">
             <label for="project-title">Título do projeto</label>
             <input formControlName="title" id="project-title" required>
         </div>
 
-        <div class="input-wrapper">
             <div class="input-block">
                 <label for="">Precisamos de...</label>
                 <p-multiSelect 
@@ -20,11 +20,6 @@
                     placeholder="Selecionar competências..."
                     selectedItemsLabel="{} competências selecionadas">
                 </p-multiSelect>
-            </div>
-
-            <div class="input-block">
-                <label for="">Até</label>
-                <input type="date" formControlName="deadline" id="project-deadline" required>
             </div>
         </div>
 

@@ -1,3 +1,36 @@
+@media (min-width: 700px) {
+    #container {
+        padding: 2rem 4rem;
+        width: 60vw;
+    }
+
+    .icon {
+        margin: 0.5rem;
+        height: 3.5rem;
+    }
+    
+    .icon:hover{
+        height: 3.6rem;
+    }
+
+    #skills {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #skills .field-group {
+        width: 50%;
+    }
+}
+
+.icon {
+    margin: 0.5rem;
+    height: 3rem;
+}
+
+.icon:hover{
+    height: 3.1rem;
+}
 
 .title {
     text-align: center;
@@ -26,15 +59,6 @@ h4 {
 .icons-wrapper {
     width: 100%;
     text-align: center;
-}
-
-.icon {
-    margin: 0.5rem;
-    height: 3.5rem;
-}
-
-.icon:hover{
-    height: 3.6rem;
 }
 
 

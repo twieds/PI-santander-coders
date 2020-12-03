@@ -85,7 +85,7 @@
                             <span class="pi pi-envelope"></span>
                             Email de contato
                         </label>
-                        <input formControlName="contact_email" id="contact_email" placeholder="seuemail@mail.com">
+                        <input formControlName="contact_email" id="contact_email" placeholder="user@email.com">
                     </div>
                 </div>
     
@@ -113,7 +113,7 @@
     
         <div class="buttons-wrapper">
             <button class="button button-secondary" (click)="onCancel()">CANCELAR</button>
-            <button class="button button-primary" (click)="onSubmit()">SALVAR</button>
+            <button class="button button-primary" (click)="onSubmit()">{{ op ? "CADASTRAR" : "ATUALIZAR"}}</button>
         </div>
     </div>
 </main>

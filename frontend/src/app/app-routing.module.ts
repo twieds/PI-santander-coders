@@ -32,6 +32,7 @@ const routes: Routes = [
 
 
   { path: 'ngo-signup', component: NgoSignUpComponent },
+  { path: 'ngo-signup/:id', component: NgoSignUpComponent },
   { path: 'ngo-list', component: NgoListComponent },
   { path: 'ngo-profile/:id',component: NgoProfileComponent},
   
