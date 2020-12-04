@@ -1,6 +1,7 @@
 package br.com.digitalhouse.repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -23,5 +24,10 @@ public interface DevRepository extends JpaRepository<Dev, Long>{
 			+ "group by d.id")
 	
 	List<Dev> findAll(Long city, Long state, Set<Long> devSkills, Set<Long>devPractice);
+	
+//	@Query("from Dev d "
+//			+ " where"
+//			+ "d.email = :email")
+	Optional<Dev> findByEmail(String email);
 
 }

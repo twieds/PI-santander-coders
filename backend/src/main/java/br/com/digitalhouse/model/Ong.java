@@ -2,7 +2,6 @@ package br.com.digitalhouse.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -30,6 +29,12 @@ public class Ong {
 	
 	@Column
 	private String name;
+	
+	@Column
+	private String email;
+	
+	@Column
+	private String password;
 	
 	@Column(columnDefinition="TEXT")
 	private String bio;

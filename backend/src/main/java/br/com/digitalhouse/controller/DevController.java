@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.digitalhouse.dto.DevDTO;
 import br.com.digitalhouse.filter.DevFilter;
+import br.com.digitalhouse.model.City;
 import br.com.digitalhouse.model.Dev;
 import br.com.digitalhouse.request.DevRequest;
 import br.com.digitalhouse.service.DevService;
@@ -49,6 +50,11 @@ public class DevController {
 		}
 
 		return ResponseEntity.notFound().build();
+	}
+	
+	@GetMapping("/email/{email}")
+	public Optional<Dev> getDevByEmail(@PathVariable String email) {
+		return service.getDevMyEmail(email);
 	}
 
 	

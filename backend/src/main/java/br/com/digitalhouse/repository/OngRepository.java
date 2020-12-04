@@ -1,6 +1,7 @@
 package br.com.digitalhouse.repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -27,5 +28,7 @@ public interface OngRepository extends JpaRepository<Ong, Long>{
 			+ "(p.ong.id = :ongID)  "
 			+ "group by p.id")	
 	List<Project> getOngProjects(Long ongID);
+	
+	Optional<Ong> findByEmail(String email);
 
 }

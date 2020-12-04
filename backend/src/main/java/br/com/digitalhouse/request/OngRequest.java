@@ -8,6 +8,8 @@ public class OngRequest {
 	private Long id;
 	private String name;
 	private String bio;
+	private String password;
+	private String email;
 	private String how_can_we_help;
 	private Location location;
 	private Long ongTypeId;

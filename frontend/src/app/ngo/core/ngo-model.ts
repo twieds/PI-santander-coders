@@ -4,6 +4,8 @@ export interface NgoModel{
     id?: number;
     name?: string;
     bio?: string;
+    email?: string;
+    password?: string;
     how_can_we_help?: string;
     location?: LocationModel;
     ongTypeId?: number;

@@ -67,6 +67,10 @@ public class DevService {
 		return repository.findById(id);
 	}
 	
+	public Optional<Dev> getDevMyEmail(String email) {
+		return repository.findByEmail(email);
+	}
+	
 	@Transactional
 	public DevDTO addDev(DevRequest request) {
 		

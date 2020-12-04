@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DevFilter {
    
+	private Long email;
     private Long city;
     private Long state;
     private Set<Long> devSkills; 

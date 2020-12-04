@@ -25,6 +25,12 @@ export class DevRepository {
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
 
+    getDevByEmail(email: string): Observable<DevModel> {
+        return this.http
+            .getAll<DevModel>(`${this.API}/email/${email}`)
+            .pipe(map((x) => this.mapper.mapFrom(x.data)));
+    }
+
     getAllDevs(param: string): Promise<DevModel[]> {
         return this.http
             .getAll<DevEntity[]>(`${this.API}?${param}`)

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from 'src/app/core/shared/shared.service';
 import { SkillModel } from 'src/app/core/skill/skill-model';
 import { SkillRepository } from 'src/app/core/skill/skill-repository';
 import { ProjectModel } from '../core/project-model';
@@ -22,12 +23,21 @@ export class AddProjectComponent implements OnInit {
   op: boolean = true;
   submitted: boolean = false;
 
+  idNgo: string = '';
+  userType: string = '';
+  idDev: string = '';
+
+  showDevNavBar: boolean = false;
+  showNgoNavBar: boolean = false;
+  showVisitorBar: boolean = false; 
+
   constructor(
     private fb: FormBuilder,
     private repository: ProjectRepository,
     private skillRepository: SkillRepository,
     private titleService: Title,
     private router: Router,
+    private sharedService: SharedService,
     private route: ActivatedRoute
   ) { }
 
@@ -35,6 +45,7 @@ export class AddProjectComponent implements OnInit {
     this.setTitle();
     this.initializeSkills();
     this.initializeForm();
+    this.navUserType();
 
     const id = +this.route.snapshot.paramMap.get('id');
     const ong_id = +this.route.snapshot.paramMap.get('id-ong');
@@ -46,6 +57,20 @@ export class AddProjectComponent implements OnInit {
 
     if (ong_id) {
       this.form.controls.ong_id.setValue(ong_id);
+    }
+  }
+
+  navUserType() {
+    this.sharedService._userType.subscribe(userType => this.userType = userType);
+    this.sharedService._idDev.subscribe(idDev => this.idDev = idDev);
+    this.sharedService._idOng.subscribe(idOng => this.idNgo = idOng);
+
+    if (this.idDev != '' && this.userType.toLowerCase() === 'dev') {
+      this.showDevNavBar = true;
+    } else if (this.idNgo != '' && this.userType.toLowerCase() === 'ngo') {
+      this.showNgoNavBar = true;
+    } else {
+      this.showVisitorBar = true;
     }
   }
 
@@ -98,11 +123,12 @@ export class AddProjectComponent implements OnInit {
       if (project.id) {
         this.repository.putProject(project).subscribe(response => {
           this.form.reset()
+          this.router.navigateByUrl('/ngo-dashboard')
         });
       } else {
         this.repository.postProject(project).subscribe(response => {
           this.form.reset()
-          this.router.navigateByUrl('/dev-signup-complete')
+          this.router.navigateByUrl('/project-success')
         });
       }
     }
@@ -110,7 +136,7 @@ export class AddProjectComponent implements OnInit {
 
   onCancel() {
     this.form.reset();
-    this.router.navigateByUrl('/home')
+    this.router.navigateByUrl('/ngo-dashboard')
   }
 
 }

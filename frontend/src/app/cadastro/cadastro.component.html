@@ -1,41 +1,12 @@
+<app-header-nav-primary>
+
+</app-header-nav-primary>
+
 <div id = "container">
-
-    <h2> CADASTRO </h2>
-
-    <form action = "">
-        <div class = "input-block">
-            <label for = "email-adress"> EMAIL: </label>
-            <input type="email" name = "email-adress" id = "email-adress" required placeholder="user@email.com.br">
-        </div>
-        
-        <div class = "input-block">
-            <label for = "password"> SENHA <small> (no mínimo 6 caracteres): </small> </label>
-            <input type="password" name = "password" id = "password" minlength="6" required placeholder="************">
-        </div>
-
-        <div class = "input-block">
-            <label for = "password-confirm"> CONFIRME SUA SENHA: </label>
-            <input type="password" name = "password-confirm" id = "password-confirm" required placeholder="************">
-        </div>
-
-        <div class = "input-block">
-            <label for=""> EU SOU... </label>
-            <select name="type-of-user" id="type-of-user">
-                <option value="1">DESENVOLVEDOR</option>
-                <option value="2">ENTIDADE/ONG</option>
-            </select>
-        </div>           
-    </form>
-
-    <h3 id="option-text"> OU </h3>
-    
     <div class = "buttons-wrapper">
-        <a href = "" class = "button button-secondary">CONTINUAR COM GOOGLE</a>
-        <a href = "" class = "button button-secondary">CONTINUAR COM GITHUB</a>
+        <a routerLink="/dev-signup" class="button button-secondary">SOU DEV</a>
+        <a routerLink="/ngo-signup" class="button button-secondary">SOU ENTIDADE</a>
     </div> 
-
-    <button href="" class="button button-primary">CADASTRAR</button>
-    <button href="" class="button button-secondary">CANCELAR</button>
 
     <div id="sign-up"> 
         <span>

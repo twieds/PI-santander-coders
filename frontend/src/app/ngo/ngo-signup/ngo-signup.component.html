@@ -18,8 +18,8 @@
                     <div class="input-block">
                         <label for="">Represento uma...</label>
                         <p-dropdown 
-                            [options]="[]" 
-                            formControlName="state" 
+                            [options]="ngoTypes" 
+                            formControlName="ongTypeId" 
                             styleClass="input-ng" 
                             [filter]="true"
                             placeholder="Selecionar..."
@@ -27,19 +27,19 @@
                         </p-dropdown>
                     </div>
                 </div>
-        
-                <div class="input-block">
-                    <label for="about-you">Nos conte a sua história:</label>
-                    <textarea formControlName="bio" id="about-you" placeholder="Queremos conhecer mais sobre sua tragetória, como tudo começou, o que você faz..."
-                        required></textarea>
-                </div>
-        
-                <div class="input-block">
-                    <label for="how-can-we-help">Como um dev pode te ajudar?</label>
-                    <textarea formControlName="how_can_we_help" id="how-can-we-help"
-                        placeholder="O que você precisa? Como nossa ajuda vai melhorar o seu dia a dia?" required></textarea>
-                </div>
+
+                <div class="input-wrapper">
+                    <div class="input-block">
+                        <label for="email">Email</label>
+                        <input id="email" formControlName="email" />
+                    </div>
     
+                    <div class="input-block">
+                        <label for="password">Senha</label>
+                        <input id="password" formControlName="password" type="password"/>
+                    </div>
+                </div>
+
                 <div class="input-wrapper">
                     <div class="input-block">
                         <label for="state">Estado</label>
@@ -65,10 +65,24 @@
                         </p-dropdown>
                     </div>
                 </div>
+        
+                <div class="input-block">
+                    <label for="about-you">Nos conte a sua história:</label>
+                    <textarea formControlName="bio" id="about-you" placeholder="Queremos conhecer mais sobre sua tragetória, como tudo começou, o que você faz..."
+                        required></textarea>
+                </div>
+        
+                <div class="input-block">
+                    <label for="how-can-we-help">Como um dev pode te ajudar?</label>
+                    <textarea formControlName="how_can_we_help" id="how-can-we-help"
+                        placeholder="O que você precisa? Como nossa ajuda vai melhorar o seu dia a dia?" required></textarea>
+                </div>
+    
+                
             </fieldset>
     
     
-            <fieldset id="contact" class="fieldset-container">
+            <fieldset class="fieldset-container">
                 <h2> CONTATO </h2>
     
                 <div class="input-wrapper">

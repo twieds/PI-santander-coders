@@ -3,6 +3,8 @@ import { SkillEntity } from 'src/app/core/skill/skill-entity';
 
 export interface DevEntity {
     id?: number;
+    password?: string;
+    email?: string;
     name?: string;
     bio?: string;
     whatsapp?: string;

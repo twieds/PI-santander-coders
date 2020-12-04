@@ -1,11 +1,11 @@
-import { state } from '@angular/animations';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { StateModel } from 'src/app/core/location/state/state-model';
+import { stringify } from 'querystring';
 import { StateRepository } from 'src/app/core/location/state/state-repository';
-import { SkillModel } from 'src/app/core/skill/skill-model';
+import { SharedService } from 'src/app/core/shared/shared.service';
 import { SkillRepository } from 'src/app/core/skill/skill-repository';
 import { DevModel } from '../core/dev-model';
 import { DevRepository } from '../core/dev-repository';
@@ -27,6 +27,9 @@ export class DevSignUpComponent implements OnInit {
   skills: any[] = [];
   op: boolean = true;
 
+  idDev: string;
+  userType: string;
+
 
   constructor(
     private fb: FormBuilder,
@@ -35,7 +38,8 @@ export class DevSignUpComponent implements OnInit {
     private skillRepository: SkillRepository,
     private titleService: Title,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +53,14 @@ export class DevSignUpComponent implements OnInit {
       this.op = false;
       this.loadDev(id);
     }
+
+    this.sharedService._idDev.subscribe(idDev => this.idDev = idDev);
+    this.sharedService._userType.subscribe(userType => this.userType = userType);
+  }
+
+  updateIdDev(id: number) {
+    this.sharedService.updateIdDev(id.toString());
+    this.sharedService.updateUserType('dev');
   }
 
   setTitle() {
@@ -59,6 +71,8 @@ export class DevSignUpComponent implements OnInit {
     this.repository.getDevById(id).subscribe(response => {
       this.form.controls.id.setValue(response.id);
       this.form.controls.name.setValue(response.name)
+      this.form.controls.password.setValue(response.password)
+      this.form.controls.email.setValue(response.email)
       this.form.controls.bio.setValue(response.bio)
       this.form.controls.state.setValue(response.location.city.state.id)
       this.form.controls.whatsapp.setValue(response.whatsapp)
@@ -66,8 +80,10 @@ export class DevSignUpComponent implements OnInit {
       this.form.controls.github.setValue(response.github)
       this.form.controls.contact_email.setValue(response.contact_email)
       this.form.controls.selectedSkills.setValue(response.dev_practice)
-      this.form.controls.selectedPracticeSkills.setValue(response.dev_skills)   
+      this.form.controls.selectedPracticeSkills.setValue(response.dev_skills)
       this.initializeCities(response.location.city.id);
+
+      this.updateIdDev(response.id);
     });
   }
 
@@ -76,6 +92,8 @@ export class DevSignUpComponent implements OnInit {
     this.form = this.fb.group({
       id: [null],
       name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
+      password: [''],
+      email: [''],
       bio: [''],
       city: [''],
       state: [''],
@@ -94,35 +112,63 @@ export class DevSignUpComponent implements OnInit {
       const dev = {
         id: this.form.value.id,
         name: this.form.value.name,
+        password: this.form.value.password,
+        email: this.form.value.email,
         bio: this.form.value.bio,
         whatsapp: this.form.value.whatsapp,
         linkedin: this.form.value.linkedin,
         github: this.form.value.github,
         contact_email: this.form.value.contact_email,
         dev_practice: this.form.value.selectedPracticeSkills,
-        dev_skills: this.form.value.selectedSkills,        
+        dev_skills: this.form.value.selectedSkills,
         location: {
           city: { id: this.form.value.city }
         }
-        
       } as DevModel;
 
+      console.log(dev);
+
       if (dev.id) {
-        this.repository.putDev(dev).subscribe(response => {
+        this.repository.putDev(dev).subscribe(() => {
           this.form.reset()
         });
       } else {
-        this.repository.postDev(dev).subscribe(response => {
-          this.form.reset()    
-          this.router.navigateByUrl('/dev-signup-complete')
+        this.repository.postDev(dev).subscribe(() => {
+          this.form.reset()
+          this.repository.getDevByEmail(dev.email).subscribe(response => {
+            this.setAccess(response.id);
+          })
         });
       }
     }
   }
 
+  setAccess = async (id: number) => {
+    try {
+      const updateDev = () => {
+        this.updateIdDev(id);
+      }
+
+      const navigate = () => {
+        updateDev();
+        this.router.navigateByUrl('/dev-success')
+      }
+
+      await navigate();
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   onCancel() {
     this.form.reset();
-    this.router.navigateByUrl('/home')
+
+    if (this.idDev) {
+      console.log(this.idDev)
+      this.router.navigateByUrl('/project-list')
+    } else {
+      this.router.navigateByUrl('/home')
+    }
   }
 
   initializeStates() {
@@ -144,10 +190,9 @@ export class DevSignUpComponent implements OnInit {
     });
   }
 
-
   initializeSkills() {
     this.skillRepository.getAllSkills().subscribe(response => {
-      this.skills.push({ id: response.id, description: response.description} )
+      this.skills.push({ id: response.id, description: response.description })
     });
   }
 

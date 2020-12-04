@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.digitalhouse.dto.OngDTO;
 import br.com.digitalhouse.filter.OngFilter;
-import br.com.digitalhouse.filter.ProjectFilter;
 import br.com.digitalhouse.model.Ong;
 import br.com.digitalhouse.model.Project;
 import br.com.digitalhouse.request.OngRequest;
@@ -56,6 +55,11 @@ public class OngController {
 		}
 
 		return ResponseEntity.notFound().build();
+	}
+	
+	@GetMapping("/email/{email}")
+	public Optional<Ong> getOngByEmail(@PathVariable String email) {
+		return service.getOngByEmail(email);
 	}
 
 	@PostMapping

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { SharedService } from 'src/app/core/shared/shared.service';
 import { ProjectModel } from '../core/project-model';
 import { ProjectRepository } from '../core/project-repository';
 import { ProjectService } from '../core/project.service';
@@ -18,14 +19,38 @@ export class ProjectEntryComponent implements OnInit {
   project_skills: string;
   skills: string;
 
+  idNgo: string = '';
+  userType: string = '';
+  idDev: string = '';
+
+  showDevNavBar: boolean = false;
+  showNgoNavBar: boolean = false;
+  showVisitorBar: boolean = false; 
+
   constructor(
     private route: ActivatedRoute,
     private repository: ProjectRepository,
-    private titleService: Title
+    private titleService: Title,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
     this.getProject();
+    this.navUserType();
+  }
+
+  navUserType() {
+    this.sharedService._userType.subscribe(userType => this.userType = userType);
+    this.sharedService._idDev.subscribe(idDev => this.idDev = idDev);
+    this.sharedService._idOng.subscribe(idOng => this.idNgo = idOng);
+
+    if (this.idDev != '' && this.userType.toLowerCase() === 'dev') {
+      this.showDevNavBar = true;
+    } else if (this.idNgo != '' && this.userType.toLowerCase() === 'ngo') {
+      this.showNgoNavBar = true;
+    } else {
+      this.showVisitorBar = true;
+    }
   }
 
   setTitle(project) {
@@ -41,6 +66,7 @@ export class ProjectEntryComponent implements OnInit {
       this.initializeSkills(project.project_skills);
     });
   }
+
 
   initializeSkills(skills): void{
     let aux = [];

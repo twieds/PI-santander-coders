@@ -1,5 +1,17 @@
-<app-header-nav-primary>
-</app-header-nav-primary>
+<header>
+    <ng-container *ngIf="showDevNavBar">
+        <app-header-primary-logged-dev></app-header-primary-logged-dev>
+    </ng-container>
+
+    <ng-container *ngIf="showNgoNavBar">
+        <app-header-primary-logged></app-header-primary-logged>
+    </ng-container>
+
+    <ng-container *ngIf="showVisitorBar">
+        <app-header-nav-primary></app-header-nav-primary>
+    </ng-container>
+</header>
+
 <ng-container *ngIf="dev">
     <div id="container">
         <div class="title">
@@ -15,7 +27,7 @@
 
         </section>
 
-        <section id="skills">
+        <section>
             <div class="field-group">
                 <p>
                     <b> Quer praticar:  </b> {{ practice_skills }} 

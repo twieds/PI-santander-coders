@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  logRequest: true,
-  traceRequest: true,
+  logRequest: false,
+  traceRequest: false,
   API: 'http://localhost:8081'
+  // API: 'https://projeto-selfless-backend.herokuapp.com/'
 };
 
 /*
@@ -17,3 +18,4 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+

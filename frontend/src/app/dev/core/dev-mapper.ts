@@ -8,6 +8,8 @@ export class DevMapper extends Mapper<DevEntity, DevModel> {
         return {
             id: param.id,
             name: param.name,
+            password: param.password,
+            email: param.email,
             bio: param.bio,
             location: param.location,
             whatsapp: param.whatsapp,
@@ -23,6 +25,8 @@ export class DevMapper extends Mapper<DevEntity, DevModel> {
         return {
             id: param.id,
             name: param.name,
+            password: param.password,
+            email: param.email,
             bio: param.bio,
             location: param.location,
             whatsapp: param.whatsapp,

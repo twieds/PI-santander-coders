@@ -3,6 +3,8 @@ import { SkillModel } from 'src/app/core/skill/skill-model';
 
 export interface DevModel{
     id?: number;
+    password?: string;
+    email?: string;
     name?: string;
     bio?: string;
     whatsapp?: string;

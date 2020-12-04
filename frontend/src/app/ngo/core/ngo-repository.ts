@@ -28,6 +28,12 @@ export class NgoRepository {
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
     }
 
+    getNgoByEmail(email: string): Observable<NgoModel> {
+        return this.http
+            .getAll<NgoModel>(`${this.API}/email/${email}`)
+            .pipe(map((x) => this.mapper.mapFrom(x.data)));
+    }
+
     getAllNgos(param: string): Promise<NgoModel[]> {
         return this.http
             .getAll<NgoEntity[]>(`${this.API}?${param}`)

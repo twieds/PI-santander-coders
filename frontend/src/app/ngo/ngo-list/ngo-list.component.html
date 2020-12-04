@@ -1,5 +1,15 @@
 <header>
-    <app-header-nav-primary></app-header-nav-primary>
+    <ng-container *ngIf="showDevNavBar">
+        <app-header-primary-logged-dev></app-header-primary-logged-dev>
+    </ng-container>
+
+    <ng-container *ngIf="showNgoNavBar">
+        <app-header-primary-logged></app-header-primary-logged>
+    </ng-container>
+
+    <ng-container *ngIf="showVisitorBar">
+        <app-header-nav-primary></app-header-nav-primary>
+    </ng-container>
 
     <div class="filter-container">
         <form class="filter-wrapper" [formGroup]="form">

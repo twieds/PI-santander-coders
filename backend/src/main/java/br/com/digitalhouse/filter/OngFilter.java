@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OngFilter {
 	
+	private Long email;
 	private Long city;
 	private Long state;
 	private Set<Long> ongType; 
